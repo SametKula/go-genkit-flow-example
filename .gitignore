@@ -1,0 +1,43 @@
+# Gitignore for Go Genkit Network Security Analyzer
+
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+go-genkit-flow-example-1
+
+# Go build artifacts
+/bin/
+/dist/
+
+# Environment secrets
+.env
+
+# Data files with sensitive IP data (keep examples, ignore actual data)
+data/blocked_ips.json
+data/quarantine_ips.json
+
+# Go dependency artifacts
+vendor/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Test artifacts
+*.test
+coverage.out
+coverage.html
+
+# Logs
+*.log

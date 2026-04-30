@@ -1,0 +1,160 @@
+// Package capture provides network packet capture functionality using gopacket.
+// It listens on a specified network interface and extracts unique IP addresses
+// for further security analysis.
+package capture
+
+import (
+	"fmt"
+	"log"
+	"net"
+	"sync"
+	"time"
+
+	"github.com/google/gopacket"
+	"github.com/google/gopacket/layers"
+	"github.com/google/gopacket/pcap"
+)
+
+// seenIP tracks deduplicated IPs with a TTL mechanism.
+type seenIP struct {
+	seenAt time.Time
+}
+
+// Capturer manages packet capture on a network interface.
+type Capturer struct {
+	iface      string
+	ipChan     chan<- string
+	seen       map[string]seenIP
+	mu         sync.Mutex
+	dedupTTL   time.Duration
+	privateNets []*net.IPNet
+}
+
+// NewCapturer creates a new Capturer for the given network interface.
+// Captured unique IPs (non-private) are sent to ipChan.
+func NewCapturer(iface string, ipChan chan<- string) *Capturer {
+	// Build list of private IP CIDR ranges to filter out
+	privateCIDRs := []string{
+		"10.0.0.0/8",
+		"172.16.0.0/12",
+		"192.168.0.0/16",
+		"127.0.0.0/8",
+		"169.254.0.0/16",
+		"::1/128",
+		"fc00::/7",
+		"fe80::/10",
+	}
+
+	var privateNets []*net.IPNet
+	for _, cidr := range privateCIDRs {
+		_, ipNet, err := net.ParseCIDR(cidr)
+		if err == nil {
+			privateNets = append(privateNets, ipNet)
+		}
+	}
+
+	return &Capturer{
+		iface:       iface,
+		ipChan:      ipChan,
+		seen:        make(map[string]seenIP),
+		dedupTTL:    30 * time.Minute,
+		privateNets: privateNets,
+	}
+}
+
+// isPrivate returns true if the IP is in a private/reserved range.
+func (c *Capturer) isPrivate(ip net.IP) bool {
+	for _, network := range c.privateNets {
+		if network.Contains(ip) {
+			return true
+		}
+	}
+	return false
+}
+
+// shouldAnalyze returns true if the IP has not been seen recently.
+// Uses TTL-based deduplication: same IP analyzed at most once per TTL window.
+func (c *Capturer) shouldAnalyze(ipStr string) bool {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+
+	if entry, exists := c.seen[ipStr]; exists {
+		if time.Since(entry.seenAt) < c.dedupTTL {
+			return false
+		}
+	}
+	c.seen[ipStr] = seenIP{seenAt: time.Now()}
+	return true
+}
+
+// Start begins packet capture. It blocks until the context is cancelled
+// via the done channel. Call it in a goroutine.
+func (c *Capturer) Start(done <-chan struct{}) error {
+	log.Printf("[CAPTURE] Starting capture on interface: %s", c.iface)
+
+	handle, err := pcap.OpenLive(c.iface, 1600, true, pcap.BlockForever)
+	if err != nil {
+		return fmt.Errorf("failed to open interface %s: %w", c.iface, err)
+	}
+	defer handle.Close()
+
+	// Filter only IP traffic
+	if err := handle.SetBPFFilter("ip or ip6"); err != nil {
+		log.Printf("[CAPTURE] Warning: could not set BPF filter: %v", err)
+	}
+
+	log.Printf("[CAPTURE] 🟢 Listening for packets on %s (dedup TTL: %v)", c.iface, c.dedupTTL)
+
+	packetSource := gopacket.NewPacketSource(handle, handle.LinkType())
+	packetSource.NoCopy = true
+
+	for {
+		select {
+		case <-done:
+			log.Println("[CAPTURE] 🔴 Capture stopped.")
+			return nil
+		case packet, ok := <-packetSource.Packets():
+			if !ok {
+				return nil
+			}
+			c.processPacket(packet)
+		}
+	}
+}
+
+// processPacket extracts source and destination IPs from a packet and
+// sends unique, non-private IPs to the analysis channel.
+func (c *Capturer) processPacket(packet gopacket.Packet) {
+	networkLayer := packet.NetworkLayer()
+	if networkLayer == nil {
+		return
+	}
+
+	var srcIP, dstIP net.IP
+
+	switch layer := networkLayer.(type) {
+	case *layers.IPv4:
+		srcIP = layer.SrcIP
+		dstIP = layer.DstIP
+	case *layers.IPv6:
+		srcIP = layer.SrcIP
+		dstIP = layer.DstIP
+	default:
+		return
+	}
+
+	for _, ip := range []net.IP{srcIP, dstIP} {
+		if ip == nil || c.isPrivate(ip) {
+			continue
+		}
+		ipStr := ip.String()
+		if c.shouldAnalyze(ipStr) {
+			log.Printf("[CAPTURE] 📡 New IP detected: %s", ipStr)
+			select {
+			case c.ipChan <- ipStr:
+			default:
+				log.Printf("[CAPTURE] ⚠️  Channel full, dropping IP: %s", ipStr)
+			}
+		}
+	}
+}
