@@ -11,6 +11,7 @@ import (
 	"strings"
 
 	"github.com/firebase/genkit/go/ai"
+	"github.com/firebase/genkit/go/core"
 	"github.com/firebase/genkit/go/genkit"
 	"github.com/firebase/genkit/go/plugins/ollama"
 
@@ -47,7 +48,7 @@ type AnalysisResult struct {
 type Analyzer struct {
 	g     *genkit.Genkit
 	model ai.Model
-	flow  *genkit.Flow[*AnalysisInput, *AnalysisResult, struct{}]
+	flow  *core.Flow[*AnalysisInput, *AnalysisResult, struct{}]
 }
 
 // systemPrompt is the instruction set for the AI model.
