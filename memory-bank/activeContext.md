@@ -9,18 +9,14 @@
 - [x] Go mod init
 - [x] Memory Bank oluşturuldu
 - [x] Proje dizin yapısı planlandı
-
-## Yapılacaklar (Bu Oturum)
-- [ ] `go.mod` bağımlılıklarını ekle
-- [ ] `internal/capture/capture.go` - gopacket IP yakalama
-- [ ] `internal/enrichment/enrichment.go` - IP zenginleştirme
-- [ ] `internal/flow/flow.go` - Genkit flow
-- [ ] `internal/actions/actions.go` - Aksiyon motoru
-- [ ] `internal/telegram/telegram.go` - Telegram bildirimi
-- [ ] `cmd/main.go` - Ana giriş noktası
-- [ ] `.env.example` - Ortam değişkenleri şablonu
-- [ ] `README.md` - Proje dokümantasyonu
-- [ ] İlk git commit
+- [x] `internal/capture/capture.go` - gopacket IP yakalama
+- [x] `internal/enrichment/enrichment.go` - IP zenginleştirme
+- [x] `internal/flow/flow.go` - Genkit flow (v1.x API fixed)
+- [x] `internal/actions/actions.go` - Aksiyon motoru & Whitelist
+- [x] `internal/telegram/telegram.go` - Telegram bildirimi
+- [x] `cmd/main.go` - Ana giriş noktası
+- [x] Whitelist özelliği (CLEAN ipler için süreli muafiyet)
+- [x] İlk git commit yapıldı
 
 ## Aktif Kararlar
 1. **Ollama Model**: `llama3.2` varsayılan (config ile değiştirilebilir)

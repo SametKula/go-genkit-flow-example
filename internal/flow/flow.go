@@ -45,6 +45,7 @@ type AnalysisResult struct {
 
 // Analyzer wraps the Genkit flow for IP security analysis.
 type Analyzer struct {
+	g     *genkit.Genkit
 	model ai.Model
 	flow  *genkit.Flow[*AnalysisInput, *AnalysisResult, struct{}]
 }
@@ -91,7 +92,10 @@ func NewAnalyzer(ctx context.Context, ollamaBaseURL, modelName string) (*Analyze
 		return nil, fmt.Errorf("model %q not found in Ollama", modelName)
 	}
 
-	a := &Analyzer{model: model}
+	a := &Analyzer{
+		g:     g,
+		model: model,
+	}
 
 	// Define the Genkit flow
 	a.flow = genkit.DefineFlow(g, "analyzeIP",
@@ -126,8 +130,9 @@ func (a *Analyzer) runAnalysis(ctx context.Context, input *AnalysisInput) (*Anal
 
 	log.Printf("[FLOW] 🤖 Sending IP %s to AI model for analysis...", input.IP)
 
-	resp, err := ai.GenerateText(ctx, a.model,
-		ai.WithTextPrompt(prompt),
+	text, err := genkit.GenerateText(ctx, a.g,
+		ai.WithModel(a.model),
+		ai.WithPrompt(prompt),
 		ai.WithConfig(&ai.GenerationCommonConfig{
 			Temperature: 0.1, // Low temperature for consistent, deterministic output
 		}),
@@ -137,10 +142,10 @@ func (a *Analyzer) runAnalysis(ctx context.Context, input *AnalysisInput) (*Anal
 	}
 
 	// Parse the JSON response
-	result, err := parseAIResponse(resp, input.IP)
+	result, err := parseAIResponse(text, input.IP)
 	if err != nil {
 		log.Printf("[FLOW] ⚠️  Failed to parse AI response for %s: %v", input.IP, err)
-		log.Printf("[FLOW] Raw response: %s", resp)
+		log.Printf("[FLOW] Raw response: %s", text)
 		// Fallback: treat as suspicious if parsing fails
 		return &AnalysisResult{
 			IP:                input.IP,
