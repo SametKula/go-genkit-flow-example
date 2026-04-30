@@ -10,25 +10,25 @@
 - [x] Memory Bank
 - [x] Dizin yapısı
 
-### Faz 2: Çekirdek Modüller 🔄
-- [ ] gopacket IP yakalama
-- [ ] IP zenginleştirme (geo, abuse)
-- [ ] Genkit flow tanımı
-- [ ] Aksiyon motoru
-- [ ] Telegram bildirimi
-- [ ] Ana uygulama
+### Faz 2: Çekirdek Modüller ✅
+- [x] gopacket IP yakalama
+- [x] IP zenginleştirme (geo, abuse)
+- [x] Genkit flow tanımı (v1.x API fixed)
+- [x] Aksiyon motoru
+- [x] Telegram bildirimi
+- [x] Ana uygulama
 
-### Faz 3: Test & Stabilizasyon ⏳
+### Faz 3: Gelişmiş Özellikler 🔄
+- [x] IP Whitelisting (Süreli muafiyet)
+- [x] Whitelist kalıcı depolama (JSON)
+- [x] IP Erişim Sayacı (Access Count)
 - [ ] Unit testler
 - [ ] Integration testler
-- [ ] Hata senaryoları
-- [ ] Performance optimizasyonu
 
 ### Faz 4: Gelecek Özellikler ⏳
 - [ ] Gerçek firewall entegrasyonu (iptables/pf)
 - [ ] Web dashboard
 - [ ] Çoklu interface desteği
-- [ ] Whitelist yönetimi
 
 ## Bilinen Sorunlar
 *Henüz yok*
@@ -36,4 +36,6 @@
 ## Commit Geçmişi
 | Hash | Mesaj | Tarih |
 |------|-------|-------|
-| *ilk commit bekleniyor* | | |
+| e05be2f | fix: correct Flow type definition in Analyzer struct | 2026-04-30 |
+| fe4fcdf | fix: resolve Genkit API issues and implement IP whitelisting | 2026-04-30 |
+| 2e3dd02 | feat: implement IP whitelisting and fix Genkit API usage | 2026-04-30 |

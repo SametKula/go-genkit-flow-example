@@ -49,6 +49,7 @@ type Config struct {
 	// Data files
 	QuarantineFile string
 	BlockFile      string
+	WhitelistFile  string
 
 	// Workers
 	WorkerCount int
@@ -66,6 +67,7 @@ func loadConfig() Config {
 		AbuseIPDBKey:     getEnv("ABUSEIPDB_API_KEY", ""),
 		QuarantineFile:   getEnv("QUARANTINE_FILE", "data/quarantine_ips.json"),
 		BlockFile:        getEnv("BLOCK_FILE", "data/blocked_ips.json"),
+		WhitelistFile:    getEnv("WHITELIST_FILE", "data/whitelisted_ips.json"),
 		WorkerCount:      5,
 		IPChanSize:       100,
 	}
@@ -115,7 +117,7 @@ func main() {
 	}
 
 	// 2. Action engine
-	actionEngine, err := actions.NewEngine(cfg.QuarantineFile, cfg.BlockFile, bot)
+	actionEngine, err := actions.NewEngine(cfg.QuarantineFile, cfg.BlockFile, cfg.WhitelistFile, bot)
 	if err != nil {
 		log.Fatalf("[MAIN] ❌ Failed to initialize action engine: %v", err)
 	}
@@ -187,9 +189,9 @@ func main() {
 			return
 
 		case <-statsTicker.C:
-			q, b := actionEngine.Stats()
-			log.Printf("[MAIN] 📊 Stats | Quarantined: %d | Blocked: %d | Queue: %d/%d",
-				q, b, len(ipChan), cap(ipChan))
+			q, b, w := actionEngine.Stats()
+			log.Printf("[MAIN] 📊 Stats | Quarantined: %d | Blocked: %d | Whitelisted: %d | Queue: %d/%d",
+				q, b, w, len(ipChan), cap(ipChan))
 		}
 	}
 }
@@ -264,6 +266,7 @@ func logConfig(cfg Config) {
 	log.Printf("[MAIN]   Ollama Model      : %s", cfg.OllamaModel)
 	log.Printf("[MAIN]   Quarantine File   : %s", cfg.QuarantineFile)
 	log.Printf("[MAIN]   Block File        : %s", cfg.BlockFile)
+	log.Printf("[MAIN]   Whitelist File    : %s", cfg.WhitelistFile)
 	log.Printf("[MAIN]   Workers           : %d", cfg.WorkerCount)
 	log.Printf("[MAIN]   Telegram          : %v", cfg.TelegramBotToken != "")
 	log.Printf("[MAIN]   AbuseIPDB         : %v", cfg.AbuseIPDBKey != "")
@@ -271,12 +274,13 @@ func logConfig(cfg Config) {
 
 // printFinalStats shows summary statistics on shutdown.
 func printFinalStats(engine *actions.Engine) {
-	q, b := engine.Stats()
+	q, b, w := engine.Stats()
 	fmt.Println()
 	fmt.Println("╔══════════════════════════════╗")
 	fmt.Println("║       📊 Session Summary      ║")
 	fmt.Printf("║  Quarantined IPs  : %-6d   ║\n", q)
 	fmt.Printf("║  Blocked IPs      : %-6d   ║\n", b)
+	fmt.Printf("║  Whitelisted IPs  : %-6d   ║\n", w)
 	fmt.Println("╚══════════════════════════════╝")
 	fmt.Println()
 }

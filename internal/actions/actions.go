@@ -26,6 +26,7 @@ type IPRecord struct {
 	Reason            string            `json:"reason"`
 	Indicators        []string          `json:"indicators"`
 	RecommendedAction string            `json:"recommended_action"`
+	AccessCount       int               `json:"access_count"`
 	Geo               *GeoSummary       `json:"geo,omitempty"`
 }
 
@@ -48,6 +49,7 @@ type ipStore struct {
 type Engine struct {
 	quarantineStore *ipStore
 	blockStore      *ipStore
+	whitelistStore  *ipStore
 	telegramBot     *telegram.Bot
 	whitelist       map[string]time.Time
 	whitelistMu     sync.RWMutex
@@ -55,7 +57,7 @@ type Engine struct {
 }
 
 // NewEngine creates a new action engine with the given file paths and Telegram bot.
-func NewEngine(quarantinePath, blockPath string, bot *telegram.Bot) (*Engine, error) {
+func NewEngine(quarantinePath, blockPath, whitelistPath string, bot *telegram.Bot) (*Engine, error) {
 	quarantine, err := loadStore(quarantinePath)
 	if err != nil {
 		return nil, fmt.Errorf("failed to load quarantine store: %w", err)
@@ -66,9 +68,15 @@ func NewEngine(quarantinePath, blockPath string, bot *telegram.Bot) (*Engine, er
 		return nil, fmt.Errorf("failed to load block store: %w", err)
 	}
 
+	whitelistFile, err := loadStore(whitelistPath)
+	if err != nil {
+		return nil, fmt.Errorf("failed to load whitelist store: %w", err)
+	}
+
 	return &Engine{
 		quarantineStore: quarantine,
 		blockStore:      block,
+		whitelistStore:  whitelistFile,
 		telegramBot:     bot,
 		whitelist:       make(map[string]time.Time),
 		whitelistTTL:    1 * time.Hour, // Whitelist CLEAN IPs for 1 hour
@@ -79,7 +87,7 @@ func NewEngine(quarantinePath, blockPath string, bot *telegram.Bot) (*Engine, er
 func (e *Engine) Execute(result *flow.AnalysisResult, enriched *enrichment.IPEnrichment) {
 	switch result.Status {
 	case flow.StatusClean:
-		e.handleClean(result)
+		e.handleClean(result, enriched)
 	case flow.StatusSuspicious:
 		e.handleSuspicious(result, enriched)
 	case flow.StatusDangerous:
@@ -90,14 +98,22 @@ func (e *Engine) Execute(result *flow.AnalysisResult, enriched *enrichment.IPEnr
 	}
 }
 
-// handleClean logs the clean result and adds the IP to the temporary whitelist.
-func (e *Engine) handleClean(result *flow.AnalysisResult) {
+// handleClean logs the clean result and adds the IP to the temporary and persistent whitelist.
+func (e *Engine) handleClean(result *flow.AnalysisResult, enriched *enrichment.IPEnrichment) {
 	log.Printf("[ACTION] ✅ CLEAN  | IP: %s | Confidence: %.0f%% | %s",
 		result.IP, result.Confidence*100, result.Reason)
 
+	// Add to memory whitelist (for performance)
 	e.whitelistMu.Lock()
-	defer e.whitelistMu.Unlock()
 	e.whitelist[result.IP] = time.Now().Add(e.whitelistTTL)
+	e.whitelistMu.Unlock()
+
+	// Add to persistent whitelist file
+	record := buildRecord(result, enriched)
+	if err := e.whitelistStore.add(record); err != nil {
+		log.Printf("[ACTION] ❌ Failed to persist whitelist IP %s: %v", result.IP, err)
+	}
+
 	log.Printf("[ACTION] 🏳️  IP %s added to whitelist for %v", result.IP, e.whitelistTTL)
 }
 
@@ -172,7 +188,7 @@ func (e *Engine) IsWhitelisted(ip string) bool {
 }
 
 // Stats returns count of quarantined and blocked IPs.
-func (e *Engine) Stats() (quarantined, blocked int) {
+func (e *Engine) Stats() (quarantined, blocked, whitelisted int) {
 	e.quarantineStore.mu.Lock()
 	quarantined = len(e.quarantineStore.records)
 	e.quarantineStore.mu.Unlock()
@@ -180,6 +196,10 @@ func (e *Engine) Stats() (quarantined, blocked int) {
 	e.blockStore.mu.Lock()
 	blocked = len(e.blockStore.records)
 	e.blockStore.mu.Unlock()
+
+	e.whitelistStore.mu.Lock()
+	whitelisted = len(e.whitelistStore.records)
+	e.whitelistStore.mu.Unlock()
 
 	return
 }
@@ -215,19 +235,17 @@ func (s *ipStore) add(record IPRecord) error {
 	defer s.mu.Unlock()
 
 	// Check for duplicates
-	for _, existing := range s.records {
+	for i, existing := range s.records {
 		if existing.IP == record.IP {
-			log.Printf("[ACTION] 📋 IP %s already in %s, updating...", record.IP, s.path)
-			// Update existing entry
-			for i, r := range s.records {
-				if r.IP == record.IP {
-					s.records[i] = record
-					return s.save()
-				}
-			}
+			log.Printf("[ACTION] 📋 IP %s already in %s, updating stats...", record.IP, s.path)
+			// Increment access count and update record
+			record.AccessCount = existing.AccessCount + 1
+			s.records[i] = record
+			return s.save()
 		}
 	}
 
+	record.AccessCount = 1
 	s.records = append(s.records, record)
 	return s.save()
 }

@@ -15,7 +15,8 @@
 - [x] `internal/actions/actions.go` - Aksiyon motoru & Whitelist
 - [x] `internal/telegram/telegram.go` - Telegram bildirimi
 - [x] `cmd/main.go` - Ana giriş noktası
-- [x] Whitelist özelliği (CLEAN ipler için süreli muafiyet)
+- [x] Whitelist özelliği (CLEAN ipler için süreli muafiyet ve JSON persistence)
+- [x] IP Erişim Sayacı (Quarantine/Block listelerinde kaç kez görüldüğü)
 - [x] İlk git commit yapıldı
 
 ## Aktif Kararlar
