@@ -36,8 +36,8 @@ Sentinel AI, ağınızdaki trafiği pasif olarak dinleyen ve şüpheli aktivitel
 
 1.  **Projeyi Klonlayın:**
     ```bash
-    git clone [repo-url]
-    cd go-genkit-flow-example-1
+    git clone https://github.com/SametKula/go-genkit-flow-example.git
+    cd go-genkit-flow-example
     ```
 
 2.  **Bağımlılıkları Yükleyin:**
