@@ -15,24 +15,28 @@ import (
 	"github.com/google/gopacket/pcap"
 )
 
-// seenIP tracks deduplicated IPs with a TTL mechanism.
-type seenIP struct {
-	seenAt time.Time
+// ipStat tracks packets for rate limiting and dedup TTL.
+type ipStat struct {
+	lastAnalyzed time.Time
+	windowStart  time.Time
+	packetCount  int
+	fastBlocked  bool
 }
 
 // Capturer manages packet capture on a network interface.
 type Capturer struct {
-	iface      string
-	ipChan     chan<- string
-	seen       map[string]seenIP
-	mu         sync.Mutex
-	dedupTTL   time.Duration
-	privateNets []*net.IPNet
+	iface         string
+	ipChan        chan<- string
+	fastBlockChan chan<- string
+	stats         map[string]*ipStat
+	mu            sync.Mutex
+	dedupTTL      time.Duration
+	privateNets   []*net.IPNet
+	rateThreshold int // Packets per second to trigger fast-path
 }
 
 // NewCapturer creates a new Capturer for the given network interface.
-// Captured unique IPs (non-private) are sent to ipChan.
-func NewCapturer(iface string, ipChan chan<- string) *Capturer {
+func NewCapturer(iface string, ipChan chan<- string, fastBlockChan chan<- string) *Capturer {
 	// Build list of private IP CIDR ranges to filter out
 	privateCIDRs := []string{
 		"10.0.0.0/8",
@@ -54,11 +58,13 @@ func NewCapturer(iface string, ipChan chan<- string) *Capturer {
 	}
 
 	return &Capturer{
-		iface:       iface,
-		ipChan:      ipChan,
-		seen:        make(map[string]seenIP),
-		dedupTTL:    30 * time.Minute,
-		privateNets: privateNets,
+		iface:         iface,
+		ipChan:        ipChan,
+		fastBlockChan: fastBlockChan,
+		stats:         make(map[string]*ipStat),
+		dedupTTL:      30 * time.Minute,
+		privateNets:   privateNets,
+		rateThreshold: 50, // 50 packets per second
 	}
 }
 
@@ -72,19 +78,52 @@ func (c *Capturer) isPrivate(ip net.IP) bool {
 	return false
 }
 
-// shouldAnalyze returns true if the IP has not been seen recently.
-// Uses TTL-based deduplication: same IP analyzed at most once per TTL window.
-func (c *Capturer) shouldAnalyze(ipStr string) bool {
+// processIP tracks rate limits and sends IPs to the correct channel.
+func (c *Capturer) processIP(ipStr string) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 
-	if entry, exists := c.seen[ipStr]; exists {
-		if time.Since(entry.seenAt) < c.dedupTTL {
-			return false
+	stat, exists := c.stats[ipStr]
+	if !exists {
+		stat = &ipStat{
+			windowStart: time.Now(),
+		}
+		c.stats[ipStr] = stat
+	}
+
+	if stat.fastBlocked {
+		return // Already fast-blocked, ignore
+	}
+
+	stat.packetCount++
+
+	now := time.Now()
+	// Check rate limit (1 second window)
+	if now.Sub(stat.windowStart) >= time.Second {
+		if stat.packetCount > c.rateThreshold {
+			stat.fastBlocked = true
+			log.Printf("[CAPTURE] [FAST-PATH] IP %s exceeded threshold (%d pkts/sec)", ipStr, stat.packetCount)
+			select {
+			case c.fastBlockChan <- ipStr:
+			default:
+			}
+			return
+		}
+		// Reset window
+		stat.windowStart = now
+		stat.packetCount = 1
+	}
+
+	// Slow path (AI Analysis) dedup
+	if stat.lastAnalyzed.IsZero() || now.Sub(stat.lastAnalyzed) >= c.dedupTTL {
+		stat.lastAnalyzed = now
+		log.Printf("[CAPTURE] [NEW IP] Sending to AI: %s", ipStr)
+		select {
+		case c.ipChan <- ipStr:
+		default:
+			log.Printf("[CAPTURE] [WARNING] Channel full, dropping IP: %s", ipStr)
 		}
 	}
-	c.seen[ipStr] = seenIP{seenAt: time.Now()}
-	return true
 }
 
 // Start begins packet capture. It blocks until the context is cancelled
@@ -148,13 +187,6 @@ func (c *Capturer) processPacket(packet gopacket.Packet) {
 			continue
 		}
 		ipStr := ip.String()
-		if c.shouldAnalyze(ipStr) {
-			log.Printf("[CAPTURE] [NEW IP] Detected: %s", ipStr)
-			select {
-			case c.ipChan <- ipStr:
-			default:
-				log.Printf("[CAPTURE] [WARNING] Channel full, dropping IP: %s", ipStr)
-			}
-		}
+		c.processIP(ipStr)
 	}
 }

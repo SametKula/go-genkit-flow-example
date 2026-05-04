@@ -12,13 +12,13 @@
 - [x] `internal/capture/capture.go` - gopacket IP yakalama
 - [x] `internal/enrichment/enrichment.go` - IP zenginleştirme
 - [x] `internal/flow/flow.go` - Genkit flow (v1.x API fixed)
-- [x] `internal/actions/actions.go` - Aksiyon motoru & Whitelist
-- [x] `internal/telegram/telegram.go` - Telegram bildirimi
+- [x] `internal/actions/actions.go` - Aksiyon motoru & SQLite veritabanı entegrasyonu
 - [x] `cmd/main.go` - Ana giriş noktası
-- [x] Whitelist özelliği (CLEAN ipler için süreli muafiyet ve JSON persistence)
-- [x] IP Erişim Sayacı (Quarantine/Block listelerinde kaç kez görüldüğü)
-- [x] İlk git commit yapıldı
+- [x] Whitelist özelliği (CLEAN ipler için bellek içi muafiyet ve SQLite persistence)
+- [x] IP Erişim Sayacı (SQLite veritabanı üzerinde access_count takibi)
 - [x] Terminal çıktılarındaki emojiler kaldırılarak log formatı daha kurumsal ve okunabilir hale getirildi
+- [x] Saniyede 50'den fazla paket gönderen IP'leri algılayan ve LLM'i atlayarak (Fast-Path) doğrudan veritabanına kaydeden Rate Limiter eklendi
+- [x] Telegram entegrasyonu ve JSON dosya depolaması projeden tamamen kaldırıldı
 
 ## Aktif Kararlar
 1. **Ollama Model**: `llama3.2` varsayılan (config ile değiştirilebilir)

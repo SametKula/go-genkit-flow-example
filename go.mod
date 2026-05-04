@@ -3,18 +3,22 @@ module go-genkit-flow-example-1
 go 1.25.0
 
 require (
+	github.com/firebase/genkit/go v1.7.0
+	github.com/google/gopacket v1.1.19
+	github.com/joho/godotenv v1.5.1
+	github.com/mattn/go-sqlite3 v1.14.44
+)
+
+require (
 	github.com/bahlo/generic-list-go v0.2.0 // indirect
 	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/coder/websocket v1.8.14 // indirect
-	github.com/firebase/genkit/go v1.7.0 // indirect
 	github.com/go-logr/logr v1.4.3 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/goccy/go-yaml v1.17.1 // indirect
 	github.com/google/dotprompt/go v0.0.0-20251014011017-8d056e027254 // indirect
-	github.com/google/gopacket v1.1.19 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/invopop/jsonschema v0.13.0 // indirect
-	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/mailru/easyjson v0.9.0 // indirect
 	github.com/mbleigh/raymond v0.0.0-20250414171441-6b3a58ab9e0a // indirect
 	github.com/wk8/go-ordered-map/v2 v2.1.8 // indirect

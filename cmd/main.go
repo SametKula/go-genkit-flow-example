@@ -27,7 +27,6 @@ import (
 	"go-genkit-flow-example-1/internal/capture"
 	"go-genkit-flow-example-1/internal/enrichment"
 	"go-genkit-flow-example-1/internal/flow"
-	"go-genkit-flow-example-1/internal/telegram"
 )
 
 // Config holds all runtime configuration from environment variables.
@@ -39,17 +38,8 @@ type Config struct {
 	OllamaBaseURL string
 	OllamaModel   string
 
-	// Telegram
-	TelegramBotToken string
-	TelegramChatID   string
-
-	// AbuseIPDB
-	AbuseIPDBKey string
-
-	// Data files
-	QuarantineFile string
-	BlockFile      string
-	WhitelistFile  string
+	// Database
+	DatabaseFile string
 
 	// Workers
 	WorkerCount int
@@ -62,12 +52,8 @@ func loadConfig() Config {
 		NetworkInterface: getEnv("NETWORK_INTERFACE", "en0"),
 		OllamaBaseURL:    getEnv("OLLAMA_BASE_URL", "http://localhost:11434"),
 		OllamaModel:      getEnv("OLLAMA_MODEL", "llama3.2"),
-		TelegramBotToken: getEnv("TELEGRAM_BOT_TOKEN", ""),
-		TelegramChatID:   getEnv("TELEGRAM_CHAT_ID", ""),
 		AbuseIPDBKey:     getEnv("ABUSEIPDB_API_KEY", ""),
-		QuarantineFile:   getEnv("QUARANTINE_FILE", "data/quarantine_ips.json"),
-		BlockFile:        getEnv("BLOCK_FILE", "data/blocked_ips.json"),
-		WhitelistFile:    getEnv("WHITELIST_FILE", "data/whitelisted_ips.json"),
+		DatabaseFile:     getEnv("DATABASE_FILE", "data/security.db"),
 		WorkerCount:      5,
 		IPChanSize:       100,
 	}
@@ -108,16 +94,8 @@ func main() {
 	// Initialize components
 	log.Println("[MAIN] [START] Initializing components...")
 
-	// 1. Telegram bot
-	bot := telegram.NewBot(cfg.TelegramBotToken, cfg.TelegramChatID)
-	if bot.Enabled() {
-		log.Println("[MAIN] [SUCCESS] Telegram bot configured")
-	} else {
-		log.Println("[MAIN] [WARNING] Telegram bot not configured (set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID)")
-	}
-
 	// 2. Action engine
-	actionEngine, err := actions.NewEngine(cfg.QuarantineFile, cfg.BlockFile, cfg.WhitelistFile, bot)
+	actionEngine, err := actions.NewEngine(cfg.DatabaseFile)
 	if err != nil {
 		log.Fatalf("[MAIN] [ERROR] Failed to initialize action engine: %v", err)
 	}
@@ -141,9 +119,28 @@ func main() {
 
 	// 5. IP channel and capturer
 	ipChan := make(chan string, cfg.IPChanSize)
+	fastBlockChan := make(chan string, cfg.IPChanSize)
 	done := make(chan struct{})
 
-	capturer := capture.NewCapturer(cfg.NetworkInterface, ipChan)
+	capturer := capture.NewCapturer(cfg.NetworkInterface, ipChan, fastBlockChan)
+
+	// Handle fast-path blocking (rate limit triggers)
+	go func() {
+		for ip := range fastBlockChan {
+			log.Printf("[MAIN] [FAST-PATH] Blocking IP immediately: %s", ip)
+			
+			result := &flow.AnalysisResult{
+				IP:                ip,
+				Status:            flow.StatusDangerous,
+				Confidence:        1.0,
+				Reason:            "Rate limit exceeded (Fast-Path: >50 pkts/sec)",
+				Indicators:        []string{"high_packet_rate", "potential_flood"},
+				RecommendedAction: "Block immediately at firewall level",
+			}
+			// Enriched data is nil because we skip external API calls on fast-path
+			actionEngine.Execute(result, nil)
+		}
+	}()
 
 	// Start worker pool for parallel IP analysis
 	var wg sync.WaitGroup
@@ -177,6 +174,7 @@ func main() {
 		case <-sigChan:
 			log.Println("\n[MAIN] [STOPPING] Shutdown signal received...")
 			close(done)
+			close(fastBlockChan)
 			cancel()
 			wg.Wait()
 			printFinalStats(actionEngine)
@@ -223,6 +221,10 @@ func analysisWorker(
 				log.Printf("[WORKER-%d] [BLOCKED] %s is already blocked, skipping", id, ip)
 				continue
 			}
+			if actionEngine.IsQuarantined(ip) {
+				log.Printf("[WORKER-%d] [QUARANTINED] %s is already quarantined, skipping", id, ip)
+				continue
+			}
 			if actionEngine.IsWhitelisted(ip) {
 				log.Printf("[WORKER-%d] [WHITELISTED] %s is whitelisted, skipping", id, ip)
 				continue
@@ -264,11 +266,8 @@ func logConfig(cfg Config) {
 	log.Printf("[MAIN]   Network Interface : %s", cfg.NetworkInterface)
 	log.Printf("[MAIN]   Ollama URL        : %s", cfg.OllamaBaseURL)
 	log.Printf("[MAIN]   Ollama Model      : %s", cfg.OllamaModel)
-	log.Printf("[MAIN]   Quarantine File   : %s", cfg.QuarantineFile)
-	log.Printf("[MAIN]   Block File        : %s", cfg.BlockFile)
-	log.Printf("[MAIN]   Whitelist File    : %s", cfg.WhitelistFile)
+	log.Printf("[MAIN]   Database File     : %s", cfg.DatabaseFile)
 	log.Printf("[MAIN]   Workers           : %d", cfg.WorkerCount)
-	log.Printf("[MAIN]   Telegram          : %v", cfg.TelegramBotToken != "")
 	log.Printf("[MAIN]   AbuseIPDB         : %v", cfg.AbuseIPDBKey != "")
 }
 

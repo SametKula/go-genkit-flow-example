@@ -14,15 +14,15 @@
 - [x] gopacket IP yakalama
 - [x] IP zenginleştirme (geo, abuse)
 - [x] Genkit flow tanımı (v1.x API fixed)
-- [x] Aksiyon motoru
-- [x] Telegram bildirimi
-- [x] Ana uygulama
+- [x] Aksiyon motoru ve SQLite veritabanı
+- [x] Ana uygulama ve Fast-Path Rate Limiter
 
 ### Faz 3: Gelişmiş Özellikler 🔄
-- [x] IP Whitelisting (Süreli muafiyet)
-- [x] Whitelist kalıcı depolama (JSON)
+- [x] IP Whitelisting (Süreli muafiyet ve SQLite)
 - [x] IP Erişim Sayacı (Access Count)
 - [x] Terminal çıktılarından emojilerin temizlenmesi ve okunabilirliğin artırılması
+- [x] JSON dosya sistemi yerine merkezi SQLite yapısına geçiş
+- [x] LLM öncesi Rate Limiter (Saniyede >50 paketi direkt kesme)
 - [ ] Unit testler
 - [ ] Integration testler
 
