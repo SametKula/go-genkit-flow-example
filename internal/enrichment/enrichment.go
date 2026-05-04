@@ -8,6 +8,8 @@ import (
 	"log"
 	"net/http"
 	"time"
+
+	"go-genkit-flow-example-1/internal/capture"
 )
 
 // httpClient is a shared HTTP client with timeout.
@@ -53,11 +55,12 @@ type abuseIPDBResponse struct {
 
 // IPEnrichment holds all collected data about an IP address.
 type IPEnrichment struct {
-	IP          string       `json:"ip"`
-	CollectedAt time.Time    `json:"collected_at"`
-	Geo         *GeoInfo     `json:"geo,omitempty"`
-	Abuse       *AbuseReport `json:"abuse,omitempty"`
-	Errors      []string     `json:"errors,omitempty"`
+	IP          string                    `json:"ip"`
+	CollectedAt time.Time                 `json:"collected_at"`
+	Context     capture.ConnectionContext `json:"context,omitempty"`
+	Geo         *GeoInfo                  `json:"geo,omitempty"`
+	Abuse       *AbuseReport              `json:"abuse,omitempty"`
+	Errors      []string                  `json:"errors,omitempty"`
 }
 
 // Enricher collects IP data from multiple sources.
@@ -71,10 +74,12 @@ func NewEnricher(abuseIPDBKey string) *Enricher {
 }
 
 // Enrich gathers all available information about an IP address.
-func (e *Enricher) Enrich(ip string) *IPEnrichment {
+func (e *Enricher) Enrich(ctx capture.ConnectionContext) *IPEnrichment {
+	ip := ctx.IP
 	result := &IPEnrichment{
 		IP:          ip,
 		CollectedAt: time.Now(),
+		Context:     ctx,
 	}
 
 	// Collect geographic info
@@ -156,6 +161,12 @@ func (e *Enricher) fetchAbuseReport(ip string) (*AbuseReport, error) {
 func (e *IPEnrichment) Summary() string {
 	summary := fmt.Sprintf("IP Address: %s\n", e.IP)
 	summary += fmt.Sprintf("Analysis Time: %s\n\n", e.CollectedAt.Format(time.RFC3339))
+
+	summary += "=== Local Network Context ===\n"
+	summary += fmt.Sprintf("Ports Accessed: %v\n", e.Context.Ports)
+	summary += fmt.Sprintf("Protocols Used: %v\n", e.Context.Protocols)
+	summary += fmt.Sprintf("Total Bytes Transferred: %d\n", e.Context.TotalBytes)
+	summary += fmt.Sprintf("Packets Captured in Window: %d\n\n", e.Context.PacketCount)
 
 	if e.Geo != nil {
 		summary += "=== Geographic Information ===\n"

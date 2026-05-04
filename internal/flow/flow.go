@@ -66,7 +66,7 @@ ANALYSIS FACTORS:
 2. ISP/Organization type (hosting providers often used for attacks, VPNs, Tor exit nodes)
 3. AbuseIPDB confidence score (>50 = suspicious, >80 = dangerous)
 4. Number of abuse reports and recent activity
-5. ASN reputation (known bad ASNs)
+5. Local Network Context: Look at the ports accessed. Accessing a single web port (80, 443) is normal. Accessing administrative or unusual ports (22, 23, 3389, 445) or scanning multiple ports is highly suspicious.
 
 RESPONSE FORMAT (JSON only, no other text):
 {
@@ -78,7 +78,7 @@ RESPONSE FORMAT (JSON only, no other text):
 }
 
 Be conservative: when in doubt between CLEAN and SUSPICIOUS, choose SUSPICIOUS.
-Between SUSPICIOUS and DANGEROUS, use the abuse score as primary indicator.`
+Between SUSPICIOUS and DANGEROUS, use the abuse score and local network context (ports accessed) as primary indicators.`
 
 // NewAnalyzer initializes Genkit with Ollama and registers the analysis flow.
 func NewAnalyzer(ctx context.Context, ollamaBaseURL, modelName string) (*Analyzer, error) {

@@ -17,8 +17,9 @@
 - [x] Whitelist özelliği (CLEAN ipler için bellek içi muafiyet ve SQLite persistence)
 - [x] IP Erişim Sayacı (SQLite veritabanı üzerinde access_count takibi)
 - [x] Terminal çıktılarındaki emojiler kaldırılarak log formatı daha kurumsal ve okunabilir hale getirildi
-- [x] Saniyede 50'den fazla paket gönderen IP'leri algılayan ve LLM'i atlayarak (Fast-Path) doğrudan veritabanına kaydeden Rate Limiter eklendi
+- [x] Saniyede 50'den fazla TCP SYN paketi gönderen IP'leri algılayan ve LLM'i atlayarak (Fast-Path) doğrudan veritabanına kaydeden Akıllı Rate Limiter eklendi
 - [x] Telegram entegrasyonu ve JSON dosya depolaması projeden tamamen kaldırıldı
+- [x] Yapay zekaya (LLM) daha derin bağlam (Local Network Context: Ports, Protocols, Payload Size) verilerek analiz doğruluğu artırıldı.
 
 ## Aktif Kararlar
 1. **Ollama Model**: `llama3.2` varsayılan (config ile değiştirilebilir)

@@ -15,18 +15,30 @@ import (
 	"github.com/google/gopacket/pcap"
 )
 
+// ConnectionContext holds aggregated network context for an IP.
+type ConnectionContext struct {
+	IP          string   `json:"ip"`
+	Ports       []uint16 `json:"ports"`
+	Protocols   []string `json:"protocols"`
+	TotalBytes  int      `json:"total_bytes"`
+	PacketCount int      `json:"packet_count"`
+}
+
 // ipStat tracks packets for rate limiting and dedup TTL.
 type ipStat struct {
-	lastAnalyzed time.Time
-	windowStart  time.Time
-	packetCount  int
-	fastBlocked  bool
+	lastAnalyzed  time.Time
+	windowStart   time.Time
+	packetCount   int
+	fastBlocked   bool
+	accessedPorts map[uint16]bool
+	protocols     map[string]bool
+	totalBytes    int
 }
 
 // Capturer manages packet capture on a network interface.
 type Capturer struct {
 	iface         string
-	ipChan        chan<- string
+	ctxChan       chan<- ConnectionContext
 	fastBlockChan chan<- string
 	stats         map[string]*ipStat
 	mu            sync.Mutex
@@ -36,7 +48,7 @@ type Capturer struct {
 }
 
 // NewCapturer creates a new Capturer for the given network interface.
-func NewCapturer(iface string, ipChan chan<- string, fastBlockChan chan<- string) *Capturer {
+func NewCapturer(iface string, ctxChan chan<- ConnectionContext, fastBlockChan chan<- string) *Capturer {
 	// Build list of private IP CIDR ranges to filter out
 	privateCIDRs := []string{
 		"10.0.0.0/8",
@@ -59,7 +71,7 @@ func NewCapturer(iface string, ipChan chan<- string, fastBlockChan chan<- string
 
 	return &Capturer{
 		iface:         iface,
-		ipChan:        ipChan,
+		ctxChan:       ctxChan,
 		fastBlockChan: fastBlockChan,
 		stats:         make(map[string]*ipStat),
 		dedupTTL:      30 * time.Minute,
@@ -79,14 +91,16 @@ func (c *Capturer) isPrivate(ip net.IP) bool {
 }
 
 // processIP tracks rate limits and sends IPs to the correct channel.
-func (c *Capturer) processIP(ipStr string, isTCPSyn bool) {
+func (c *Capturer) processIP(ipStr string, isTCPSyn bool, port uint16, protocol string, size int) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 
 	stat, exists := c.stats[ipStr]
 	if !exists {
 		stat = &ipStat{
-			windowStart: time.Now(),
+			windowStart:   time.Now(),
+			accessedPorts: make(map[uint16]bool),
+			protocols:     make(map[string]bool),
 		}
 		c.stats[ipStr] = stat
 	}
@@ -98,6 +112,15 @@ func (c *Capturer) processIP(ipStr string, isTCPSyn bool) {
 	if isTCPSyn {
 		stat.packetCount++
 	}
+
+	// Update Context
+	if port != 0 {
+		stat.accessedPorts[port] = true
+	}
+	if protocol != "" {
+		stat.protocols[protocol] = true
+	}
+	stat.totalBytes += size
 
 	now := time.Now()
 	// Check rate limit (1 second window)
@@ -119,9 +142,22 @@ func (c *Capturer) processIP(ipStr string, isTCPSyn bool) {
 	// Slow path (AI Analysis) dedup
 	if stat.lastAnalyzed.IsZero() || now.Sub(stat.lastAnalyzed) >= c.dedupTTL {
 		stat.lastAnalyzed = now
-		log.Printf("[CAPTURE] [NEW IP] Sending to AI: %s", ipStr)
+
+		ctx := ConnectionContext{
+			IP:          ipStr,
+			TotalBytes:  stat.totalBytes,
+			PacketCount: stat.packetCount,
+		}
+		for p := range stat.accessedPorts {
+			ctx.Ports = append(ctx.Ports, p)
+		}
+		for p := range stat.protocols {
+			ctx.Protocols = append(ctx.Protocols, p)
+		}
+
+		log.Printf("[CAPTURE] [NEW IP] Sending to AI: %s (Ports: %v)", ipStr, ctx.Ports)
 		select {
-		case c.ipChan <- ipStr:
+		case c.ctxChan <- ctx:
 		default:
 			log.Printf("[CAPTURE] [WARNING] Channel full, dropping IP: %s", ipStr)
 		}
@@ -172,7 +208,7 @@ func (c *Capturer) processPacket(packet gopacket.Packet) {
 	}
 
 	var srcIP, dstIP net.IP
-
+	
 	switch layer := networkLayer.(type) {
 	case *layers.IPv4:
 		srcIP = layer.SrcIP
@@ -184,13 +220,23 @@ func (c *Capturer) processPacket(packet gopacket.Packet) {
 		return
 	}
 
+	var port uint16
+	var protocol string
+	size := len(packet.Data())
 	isTCPSyn := false
+
 	if tcpLayer := packet.Layer(layers.LayerTypeTCP); tcpLayer != nil {
 		tcp, _ := tcpLayer.(*layers.TCP)
+		protocol = "TCP"
 		// Only consider it a new connection if SYN is set and ACK is not
 		if tcp.SYN && !tcp.ACK {
 			isTCPSyn = true
 		}
+		port = uint16(tcp.DstPort)
+	} else if udpLayer := packet.Layer(layers.LayerTypeUDP); udpLayer != nil {
+		udp, _ := udpLayer.(*layers.UDP)
+		protocol = "UDP"
+		port = uint16(udp.DstPort)
 	}
 
 	for _, ip := range []net.IP{srcIP, dstIP} {
@@ -198,6 +244,6 @@ func (c *Capturer) processPacket(packet gopacket.Packet) {
 			continue
 		}
 		ipStr := ip.String()
-		c.processIP(ipStr, isTCPSyn)
+		c.processIP(ipStr, isTCPSyn, port, protocol, size)
 	}
 }

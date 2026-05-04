@@ -22,7 +22,8 @@
 - [x] IP Erişim Sayacı (Access Count)
 - [x] Terminal çıktılarından emojilerin temizlenmesi ve okunabilirliğin artırılması
 - [x] JSON dosya sistemi yerine merkezi SQLite yapısına geçiş
-- [x] LLM öncesi Rate Limiter (Saniyede >50 paketi direkt kesme)
+- [x] LLM öncesi Akıllı TCP SYN Rate Limiter (Saniyede >50 paketi direkt kesme)
+- [x] Yapay zekaya (LLM) daha derin bağlam (Local Network Context: Ports, Protocols) verilmesi
 - [ ] Unit testler
 - [ ] Integration testler
 

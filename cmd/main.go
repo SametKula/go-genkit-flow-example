@@ -121,11 +121,11 @@ func main() {
 	log.Println("[MAIN] [SUCCESS] AI analyzer ready")
 
 	// 5. IP channel and capturer
-	ipChan := make(chan string, cfg.IPChanSize)
+	ctxChan := make(chan capture.ConnectionContext, cfg.IPChanSize)
 	fastBlockChan := make(chan string, cfg.IPChanSize)
 	done := make(chan struct{})
 
-	capturer := capture.NewCapturer(cfg.NetworkInterface, ipChan, fastBlockChan)
+	capturer := capture.NewCapturer(cfg.NetworkInterface, ctxChan, fastBlockChan)
 
 	// Handle fast-path blocking (rate limit triggers)
 	go func() {
@@ -152,7 +152,7 @@ func main() {
 		wg.Add(1)
 		go func(workerID int) {
 			defer wg.Done()
-			analysisWorker(ctx, workerID, ipChan, enricher, analyzer, actionEngine)
+			analysisWorker(ctx, workerID, ctxChan, enricher, analyzer, actionEngine)
 		}(i + 1)
 	}
 
@@ -192,16 +192,16 @@ func main() {
 		case <-statsTicker.C:
 			q, b, w := actionEngine.Stats()
 			log.Printf("[MAIN] [STATS] Quarantined: %d | Blocked: %d | Whitelisted: %d | Queue: %d/%d",
-				q, b, w, len(ipChan), cap(ipChan))
+				q, b, w, len(ctxChan), cap(ctxChan))
 		}
 	}
 }
 
-// analysisWorker reads IPs from the channel, enriches and analyzes them.
+// analysisWorker reads IP contexts from the channel, enriches and analyzes them.
 func analysisWorker(
 	ctx context.Context,
 	id int,
-	ipChan <-chan string,
+	ctxChan <-chan capture.ConnectionContext,
 	enricher *enrichment.Enricher,
 	analyzer *flow.Analyzer,
 	actionEngine *actions.Engine,
@@ -214,10 +214,11 @@ func analysisWorker(
 		case <-ctx.Done():
 			return
 
-		case ip, ok := <-ipChan:
+		case connCtx, ok := <-ctxChan:
 			if !ok {
 				return
 			}
+			ip := connCtx.IP
 
 			// Skip already blocked/quarantined/whitelisted IPs
 			if actionEngine.IsBlocked(ip) {
@@ -233,10 +234,10 @@ func analysisWorker(
 				continue
 			}
 
-			log.Printf("[WORKER-%d] [ANALYZING] IP: %s", id, ip)
+			log.Printf("[WORKER-%d] [ANALYZING] IP: %s (Ports: %v)", id, ip, connCtx.Ports)
 
 			// Step 1: Enrich IP data
-			enriched := enricher.Enrich(ip)
+			enriched := enricher.Enrich(connCtx)
 
 			// Step 2: AI analysis via Genkit flow
 			result, err := analyzer.Analyze(ctx, enriched)
