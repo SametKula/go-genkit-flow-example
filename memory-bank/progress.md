@@ -22,6 +22,7 @@
 - [x] IP Whitelisting (Süreli muafiyet)
 - [x] Whitelist kalıcı depolama (JSON)
 - [x] IP Erişim Sayacı (Access Count)
+- [x] Terminal çıktılarından emojilerin temizlenmesi ve okunabilirliğin artırılması
 - [ ] Unit testler
 - [ ] Integration testler
 

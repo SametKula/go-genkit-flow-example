@@ -86,7 +86,7 @@ func main() {
 
 	// Load .env file if present
 	if err := godotenv.Load(); err != nil {
-		log.Println("[MAIN] ℹ️  No .env file found, using environment variables")
+		log.Println("[MAIN] [INFO] No .env file found, using environment variables")
 	}
 
 	cfg := loadConfig()
@@ -94,7 +94,7 @@ func main() {
 
 	// Ensure data directory exists
 	if err := os.MkdirAll("data", 0755); err != nil {
-		log.Fatalf("[MAIN] ❌ Failed to create data directory: %v", err)
+		log.Fatalf("[MAIN] [ERROR] Failed to create data directory: %v", err)
 	}
 
 	// Setup context with cancellation for graceful shutdown
@@ -106,38 +106,38 @@ func main() {
 	signal.Notify(sigChan, syscall.SIGINT, syscall.SIGTERM)
 
 	// Initialize components
-	log.Println("[MAIN] 🔧 Initializing components...")
+	log.Println("[MAIN] [START] Initializing components...")
 
 	// 1. Telegram bot
 	bot := telegram.NewBot(cfg.TelegramBotToken, cfg.TelegramChatID)
 	if bot.Enabled() {
-		log.Println("[MAIN] ✅ Telegram bot configured")
+		log.Println("[MAIN] [SUCCESS] Telegram bot configured")
 	} else {
-		log.Println("[MAIN] ⚠️  Telegram bot not configured (set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID)")
+		log.Println("[MAIN] [WARNING] Telegram bot not configured (set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID)")
 	}
 
 	// 2. Action engine
 	actionEngine, err := actions.NewEngine(cfg.QuarantineFile, cfg.BlockFile, cfg.WhitelistFile, bot)
 	if err != nil {
-		log.Fatalf("[MAIN] ❌ Failed to initialize action engine: %v", err)
+		log.Fatalf("[MAIN] [ERROR] Failed to initialize action engine: %v", err)
 	}
-	log.Println("[MAIN] ✅ Action engine ready")
+	log.Println("[MAIN] [SUCCESS] Action engine ready")
 
 	// 3. IP enricher
 	enricher := enrichment.NewEnricher(cfg.AbuseIPDBKey)
 	if cfg.AbuseIPDBKey != "" {
-		log.Println("[MAIN] ✅ AbuseIPDB enrichment enabled")
+		log.Println("[MAIN] [SUCCESS] AbuseIPDB enrichment enabled")
 	} else {
-		log.Println("[MAIN] ⚠️  AbuseIPDB enrichment disabled (set ABUSEIPDB_API_KEY to enable)")
+		log.Println("[MAIN] [WARNING] AbuseIPDB enrichment disabled (set ABUSEIPDB_API_KEY to enable)")
 	}
 
 	// 4. Genkit / Ollama analyzer
-	log.Printf("[MAIN] 🤖 Connecting to Ollama at %s with model '%s'...", cfg.OllamaBaseURL, cfg.OllamaModel)
+	log.Printf("[MAIN] [INFO] Connecting to Ollama at %s with model '%s'...", cfg.OllamaBaseURL, cfg.OllamaModel)
 	analyzer, err := flow.NewAnalyzer(ctx, cfg.OllamaBaseURL, cfg.OllamaModel)
 	if err != nil {
-		log.Fatalf("[MAIN] ❌ Failed to initialize AI analyzer: %v", err)
+		log.Fatalf("[MAIN] [ERROR] Failed to initialize AI analyzer: %v", err)
 	}
-	log.Println("[MAIN] ✅ AI analyzer ready")
+	log.Println("[MAIN] [SUCCESS] AI analyzer ready")
 
 	// 5. IP channel and capturer
 	ipChan := make(chan string, cfg.IPChanSize)
@@ -147,7 +147,7 @@ func main() {
 
 	// Start worker pool for parallel IP analysis
 	var wg sync.WaitGroup
-	log.Printf("[MAIN] 🏭 Starting %d analysis workers...", cfg.WorkerCount)
+	log.Printf("[MAIN] [INFO] Starting %d analysis workers...", cfg.WorkerCount)
 	for i := 0; i < cfg.WorkerCount; i++ {
 		wg.Add(1)
 		go func(workerID int) {
@@ -159,7 +159,7 @@ func main() {
 	// Start packet capture in background
 	go func() {
 		if err := capturer.Start(done); err != nil {
-			log.Printf("[MAIN] ❌ Capture error: %v", err)
+			log.Printf("[MAIN] [ERROR] Capture error: %v", err)
 			cancel()
 		}
 	}()
@@ -168,19 +168,19 @@ func main() {
 	statsTicker := time.NewTicker(60 * time.Second)
 	defer statsTicker.Stop()
 
-	log.Println("[MAIN] 🚀 System running! Press Ctrl+C to stop.")
+	log.Println("[MAIN] [STARTED] System running! Press Ctrl+C to stop.")
 	log.Println("[MAIN] ─────────────────────────────────────────")
 
 	// Main loop
 	for {
 		select {
 		case <-sigChan:
-			log.Println("\n[MAIN] 🛑 Shutdown signal received...")
+			log.Println("\n[MAIN] [STOPPING] Shutdown signal received...")
 			close(done)
 			cancel()
 			wg.Wait()
 			printFinalStats(actionEngine)
-			log.Println("[MAIN] 👋 Goodbye!")
+			log.Println("[MAIN] [EXIT] Goodbye!")
 			return
 
 		case <-ctx.Done():
@@ -190,7 +190,7 @@ func main() {
 
 		case <-statsTicker.C:
 			q, b, w := actionEngine.Stats()
-			log.Printf("[MAIN] 📊 Stats | Quarantined: %d | Blocked: %d | Whitelisted: %d | Queue: %d/%d",
+			log.Printf("[MAIN] [STATS] Quarantined: %d | Blocked: %d | Whitelisted: %d | Queue: %d/%d",
 				q, b, w, len(ipChan), cap(ipChan))
 		}
 	}
@@ -205,8 +205,8 @@ func analysisWorker(
 	analyzer *flow.Analyzer,
 	actionEngine *actions.Engine,
 ) {
-	log.Printf("[WORKER-%d] 🟢 Started", id)
-	defer log.Printf("[WORKER-%d] 🔴 Stopped", id)
+	log.Printf("[WORKER-%d] [STARTED] Worker ready", id)
+	defer log.Printf("[WORKER-%d] [STOPPED] Worker exit", id)
 
 	for {
 		select {
@@ -220,15 +220,15 @@ func analysisWorker(
 
 			// Skip already blocked/quarantined/whitelisted IPs
 			if actionEngine.IsBlocked(ip) {
-				log.Printf("[WORKER-%d] 🚫 %s is already blocked, skipping", id, ip)
+				log.Printf("[WORKER-%d] [BLOCKED] %s is already blocked, skipping", id, ip)
 				continue
 			}
 			if actionEngine.IsWhitelisted(ip) {
-				log.Printf("[WORKER-%d] 🏳️  %s is whitelisted, skipping", id, ip)
+				log.Printf("[WORKER-%d] [WHITELISTED] %s is whitelisted, skipping", id, ip)
 				continue
 			}
 
-			log.Printf("[WORKER-%d] 🔍 Analyzing IP: %s", id, ip)
+			log.Printf("[WORKER-%d] [ANALYZING] IP: %s", id, ip)
 
 			// Step 1: Enrich IP data
 			enriched := enricher.Enrich(ip)
@@ -236,7 +236,7 @@ func analysisWorker(
 			// Step 2: AI analysis via Genkit flow
 			result, err := analyzer.Analyze(ctx, enriched)
 			if err != nil {
-				log.Printf("[WORKER-%d] ❌ Analysis failed for %s: %v", id, ip, err)
+				log.Printf("[WORKER-%d] [ERROR] Analysis failed for %s: %v", id, ip, err)
 				continue
 			}
 
@@ -250,7 +250,7 @@ func analysisWorker(
 func printBanner() {
 	fmt.Println()
 	fmt.Println("╔══════════════════════════════════════════════════════╗")
-	fmt.Println("║     🛡️  Go Genkit Network Security Analyzer  🛡️      ║")
+	fmt.Println("║        Go Genkit Network Security Analyzer           ║")
 	fmt.Println("║                                                      ║")
 	fmt.Println("║   gopacket + Firebase Genkit + Ollama AI             ║")
 	fmt.Println("║   Real-time IP Threat Detection & Response           ║")
@@ -277,7 +277,7 @@ func printFinalStats(engine *actions.Engine) {
 	q, b, w := engine.Stats()
 	fmt.Println()
 	fmt.Println("╔══════════════════════════════╗")
-	fmt.Println("║       📊 Session Summary      ║")
+	fmt.Println("║       Session Summary        ║")
 	fmt.Printf("║  Quarantined IPs  : %-6d   ║\n", q)
 	fmt.Printf("║  Blocked IPs      : %-6d   ║\n", b)
 	fmt.Printf("║  Whitelisted IPs  : %-6d   ║\n", w)

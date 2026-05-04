@@ -1,0 +1,3041 @@
+[
+  {
+    "ip": "172.217.23.10",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:27:38.812684+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a well-known and trusted organization, Google LLC.",
+    "indicators": [
+      "Google LLC",
+      "AS15169"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "162.159.200.1",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:36.294666+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a reputable organization (Cloudflare, Inc.) with no recent abuse reports or high abuse scores.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Data Center/Web Hosting/Transit"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "172.217.20.74",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:57.999925+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Data Center/Web Hosting/Transit"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 2,
+    "geo": {
+      "country": "The Netherlands",
+      "country_code": "NL",
+      "city": "Amsterdam",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.171.74",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:20.204362+03:00",
+    "confidence": 1,
+    "reason": "IP address is associated with a well-known and reputable organization (Google LLC), has no abuse reports, and a high confidence score from AbuseIPDB.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "216.239.36.223",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:41:55.764082+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 2,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Austell",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "216.239.34.223",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:27:51.212081+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization with no recent abuse reports or high abuse scores.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Austell",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "140.82.113.25",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:27:52.300006+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a trusted organization, GitHub Inc.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "San Francisco",
+      "isp": "GitHub, Inc."
+    }
+  },
+  {
+    "ip": "172.64.155.209",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:43:22.516136+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, low abuse confidence score, and no recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Low Abuse Confidence Score"
+    ],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "172.217.23.131",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:36.418078+03:00",
+    "confidence": 1,
+    "reason": "IP address is associated with Google LLC, a reputable organization, and has no abuse reports or high abuse scores.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.21.202",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:28:01.461431+03:00",
+    "confidence": 0.95,
+    "reason": "Legitimate IP address from a trusted organization with no known abuse reports or recent activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.20.197",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:28:07.117621+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization with no known abuse reports or recent activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Poland",
+      "country_code": "PL",
+      "city": "Warsaw",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "ff02::fb",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:02.469665+03:00",
+    "confidence": 1,
+    "reason": "IP address ff02::fb is a reserved IPv6 address, not associated with any known malicious activity.",
+    "indicators": [
+      "Reserved IPv6 Address"
+    ],
+    "recommended_action": "Monitor for unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "",
+      "country_code": "",
+      "city": "",
+      "isp": ""
+    }
+  },
+  {
+    "ip": "ff02::1",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:41:57.100346+03:00",
+    "confidence": 1,
+    "reason": "IP address ff02::1 is a reserved IPv6 address, used for link-local communication on IPv6 networks.",
+    "indicators": [
+      "Reserved IPv6 address",
+      "Link-local communication"
+    ],
+    "recommended_action": "Monitor for unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "",
+      "country_code": "",
+      "city": "",
+      "isp": ""
+    }
+  },
+  {
+    "ip": "172.217.18.174",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:29:08.485301+03:00",
+    "confidence": 0.95,
+    "reason": "Legitimate IP address from a well-known and trusted organization, Google LLC.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.18.170",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:29:10.817726+03:00",
+    "confidence": 0.95,
+    "reason": "Legitimate IP address from a trusted organization with no known abuse reports.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "255.255.255.255",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:29:11.861484+03:00",
+    "confidence": 0,
+    "reason": "No threat indicators found due to lack of geographic information and no AbuseIPDB check.",
+    "indicators": [],
+    "recommended_action": "Continue monitoring for potential changes in behavior",
+    "access_count": 1
+  },
+  {
+    "ip": "224.0.0.1",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:41.622082+03:00",
+    "confidence": 0.9,
+    "reason": "IP address is a reserved IPv4 address, not associated with any known malicious activity.",
+    "indicators": [
+      "Reserved IP Address",
+      "No Abuse Reports"
+    ],
+    "recommended_action": "Monitor for unusual activity",
+    "access_count": 2
+  },
+  {
+    "ip": "0.0.0.0",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:29:20.165868+03:00",
+    "confidence": 0,
+    "reason": "No threat indicators found due to lack of geographic information and no AbuseIPDB check.",
+    "indicators": [],
+    "recommended_action": "Continue monitoring for potential changes in IP behavior.",
+    "access_count": 1
+  },
+  {
+    "ip": "162.159.200.123",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:41:40.318874+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a reputable organization (Cloudflare, Inc.) with no recent abuse reports or high abuse scores.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Data Center/Web Hosting/Transit"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "172.217.23.138",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:41:47.490323+03:00",
+    "confidence": 1,
+    "reason": "IP address is associated with Google LLC, a well-known and reputable organization.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.20.78",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:04.105343+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or recent activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 2,
+    "geo": {
+      "country": "The Netherlands",
+      "country_code": "NL",
+      "city": "Amsterdam",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "16.16.163.191",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:32:10.405752+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a well-known and trusted organization (AWS EC2) in Sweden, with no recent abuse reports or indicators of malicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Sweden",
+      "country_code": "SE",
+      "city": "Stockholm",
+      "isp": "Amazon.com"
+    }
+  },
+  {
+    "ip": "51.21.192.56",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:32:11.724953+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a well-known and trusted organization, with no clear indicators of malicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Sweden",
+      "country_code": "SE",
+      "city": "Stockholm",
+      "isp": "Amazon.com, Inc."
+    }
+  },
+  {
+    "ip": "104.18.32.47",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:32:50.020655+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization with a good reputation, located in Canada.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "172.217.20.206",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:33:09.790924+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate ISP and organization with a high-reputation ASN, located in Poland.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Poland",
+      "country_code": "PL",
+      "city": "Warsaw",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.19.174",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:34:12.652459+03:00",
+    "confidence": 0.95,
+    "reason": "Legitimate IP address from a trusted organization with no known abuse reports or recent activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Switzerland",
+      "country_code": "CH",
+      "city": "Zurich",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.16.142",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:35.043775+03:00",
+    "confidence": 1,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or indicators of malicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 2,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.20.67",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:35:22.201994+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization with no known abuse reports.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "The Netherlands",
+      "country_code": "NL",
+      "city": "Amsterdam",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.20.195",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:20.404562+03:00",
+    "confidence": 1,
+    "reason": "No concerning indicators found in the analysis, IP is associated with a reputable organization (Google LLC) and has no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 2,
+    "geo": {
+      "country": "Poland",
+      "country_code": "PL",
+      "city": "Warsaw",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.22.227",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:35:27.467551+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate ISP and organization with a high-reputation ASN, located in Germany.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Munich",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "35.215.90.198",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:35:38.243326+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, no recent abuse reports or high abuse scores",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Los Angeles",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.168.99",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:35:39.273449+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a well-known organization with a good ASN reputation.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "216.239.38.223",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:52.649826+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or high confidence score.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Austell",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.67.70.74",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:41:41.813349+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a well-known and reputable organization (Cloudflare, Inc.) with no reported abuse or malicious activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "104.18.95.41",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:17.713463+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a well-known and reputable organization (Cloudflare, Inc.) with no recent abuse reports or high abuse scores.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "162.159.207.0",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:37:00.316478+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization with a high-reputation ASN, located in Canada.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "74.125.250.129",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:37:01.412724+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a well-known organization with a good ASN reputation.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "104.17.24.14",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:08.136868+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a reputable organization with high abuse confidence score and no recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 2,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "104.16.174.226",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:16.062049+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, low abuse confidence score, and no recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Low Abuse Confidence Score"
+    ],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "172.67.69.29",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:37:10.11802+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization with a good reputation, located in Canada.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "104.18.34.93",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:12.849445+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, low abuse confidence score, and no recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Low Abuse Confidence Score"
+    ],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "198.217.251.250",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:11.293504+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a well-known and reputable organization (Cloudflare, Inc.) with no reported abuse or suspicious activity.",
+    "indicators": [
+      "Legitimate",
+      "Reputable",
+      "No Abuse Reports"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "San Francisco",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "104.18.7.168",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:24.390241+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a reputable organization (Cloudflare, Inc.) with no abuse reports or recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 2,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "172.217.20.202",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:37:29.143231+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization with a good ASN reputation and no recent abuse reports.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Poland",
+      "country_code": "PL",
+      "city": "Warsaw",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "198.217.251.251",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:09.751174+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP (Cloudflare, Inc.) and organization (Visa International Service Association) with no abuse reports or recent activity.",
+    "indicators": [
+      "Legitimate ISP",
+      "Whitelisted: false"
+    ],
+    "recommended_action": "Monitor IP for any changes in behavior",
+    "access_count": 2,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "San Francisco",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "104.18.17.229",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:06.63989+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a well-known and reputable organization (Cloudflare, Inc.) with no abuse reports or suspicious activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 2,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "15.197.228.64",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:37:32.492159+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a well-known and trusted organization, with no clear indicators of malicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Montreal",
+      "isp": "Amazon.com, Inc."
+    }
+  },
+  {
+    "ip": "54.84.145.135",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:31.304349+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a well-known and reputable organization (AWS EC2) with no abuse reports or suspicious activity.",
+    "indicators": [
+      "Amazon.com, Inc.",
+      "AWS EC2",
+      "us-east-1 ASN"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Ashburn",
+      "isp": "Amazon.com, Inc."
+    }
+  },
+  {
+    "ip": "172.217.22.234",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:11.892281+03:00",
+    "confidence": 1,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 2,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Munich",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.168.106",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:37.969928+03:00",
+    "confidence": 1,
+    "reason": "IP address is associated with a well-known and reputable organization (Google LLC), has no abuse reports, and a high confidence score from AbuseIPDB.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.21.234",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:43:28.185091+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no recent abuse reports or high abuse scores.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.168.110",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:38:55.235911+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization with no known abuse reports or recent activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "216.239.32.223",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:41:50.000226+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Austell",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.18.163",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:33.778456+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or high confidence score.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.16.138",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:35.186885+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a well-known organization with high abuse score and no recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 2,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "17.253.38.43",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:40:41.499001+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization with no known abuse reports or recent activity.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any suspicious activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Sweden",
+      "country_code": "SE",
+      "city": "Kista",
+      "isp": "Apple Inc."
+    }
+  },
+  {
+    "ip": "140.82.112.26",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:01.271787+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate organization with whitelisting and low abuse confidence score, indicating no known threat.",
+    "indicators": [
+      "Whitelisted",
+      "Low Abuse Confidence Score"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "San Francisco",
+      "isp": "GitHub, Inc."
+    }
+  },
+  {
+    "ip": "140.82.121.4",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:41:44.010918+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or unusual activity",
+    "access_count": 2,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "GitHub, Inc."
+    }
+  },
+  {
+    "ip": "17.248.209.54",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:41:37.549236+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or suspicious activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt Am Main",
+      "isp": "Apple Inc."
+    }
+  },
+  {
+    "ip": "192.178.25.234",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:41:38.774968+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "17.253.57.13",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:41:42.896679+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt Am Main",
+      "isp": "Apple Inc."
+    }
+  },
+  {
+    "ip": "192.178.24.42",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:41:45.189695+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "192.178.24.74",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:41:46.375109+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or high confidence score.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "142.251.38.234",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:41:48.755829+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no recent abuse reports or high abuse scores.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "142.251.143.14",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:41:51.178748+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "34.54.84.110",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:41:59.896246+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, low abuse confidence score, and limited reports.",
+    "indicators": [
+      "Low abuse confidence score",
+      "Limited reports"
+    ],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Kansas City",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "224.0.0.251",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:03.690622+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis, and AbuseIPDB confidence score is 0/100.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or new reports",
+    "access_count": 1
+  },
+  {
+    "ip": "142.250.203.206",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:05.185229+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports and high confidence score.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Data Center/Web Hosting/Transit"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "159.242.242.192",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:14.695445+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a reputable organization (PayPal, Inc.) with a well-known and trusted ISP (Cloudflare, Inc.). Low abuse confidence score and no recent activity.",
+    "indicators": [
+      "Legitimate",
+      "Reputable",
+      "Low-abuse"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "San Jose",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "142.251.142.101",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:18.953796+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or high confidence score.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "146.75.3.1",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:21.515634+03:00",
+    "confidence": 0,
+    "reason": "No suspicious indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Bulgaria",
+      "country_code": "BG",
+      "city": "Sofia",
+      "isp": "Fastly, Inc."
+    }
+  },
+  {
+    "ip": "35.190.80.1",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:22.895546+03:00",
+    "confidence": 0.8,
+    "reason": "Low abuse confidence score and no recent activity, indicating a legitimate use case.",
+    "indicators": [
+      "Low abuse confidence score",
+      "No recent activity"
+    ],
+    "recommended_action": "Monitor IP for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Kansas City",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "146.75.1.21",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:25.571042+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or suspicious activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Bulgaria",
+      "country_code": "BG",
+      "city": "Sofia",
+      "isp": "Fastly, Inc."
+    }
+  },
+  {
+    "ip": "83.66.162.36",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:26.758404+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or suspicious activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Türkiye",
+      "country_code": "TR",
+      "city": "Istanbul",
+      "isp": "Andromeda TV Digital Platform Isletmeciligi A.S."
+    }
+  },
+  {
+    "ip": "142.250.145.188",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:28.078809+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or recent activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "192.178.24.174",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:32.529317+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "192.178.24.14",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:37.726076+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "142.251.154.119",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:39.067411+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or high confidence score.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "192.178.24.1",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:42.861218+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "35.190.25.25",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:44.213472+03:00",
+    "confidence": 0.8,
+    "reason": "Low abuse confidence score and no recent activity, indicating a legitimate use case.",
+    "indicators": [
+      "Low abuse confidence score",
+      "No recent activity"
+    ],
+    "recommended_action": "Monitor IP for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Kansas City",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "35.186.241.51",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:47.170077+03:00",
+    "confidence": 0.8,
+    "reason": "Low abuse confidence score and no recent activity, indicating a legitimate IP address from Google Cloud.",
+    "indicators": [
+      "Abuse Confidence Score \u003c 50",
+      "No recent reports"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Kansas City",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "107.178.240.159",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:48.437466+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a well-known organization with low abuse score and no recent activity.",
+    "indicators": [
+      "Google LLC",
+      "AS396982"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Kansas City",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "142.251.127.84",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:42:51.61564+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no recent abuse reports or high abuse confidence score.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Data Center/Web Hosting/Transit"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "212.147.230.112",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:43:04.00402+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or suspicious activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "UpCloud Ltd"
+    }
+  },
+  {
+    "ip": "95.142.206.137",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:43:16.492737+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Netherlands",
+      "country_code": "NL",
+      "city": "Amsterdam",
+      "isp": "Digital Transformation Plus LLC"
+    }
+  },
+  {
+    "ip": "95.142.206.135",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:43:17.595371+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or suspicious activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Netherlands",
+      "country_code": "NL",
+      "city": "Amsterdam",
+      "isp": "Digital Transformation Plus LLC"
+    }
+  },
+  {
+    "ip": "95.142.206.130",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:43:18.777675+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a reputable organization with no known abuse reports or recent activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Netherlands",
+      "country_code": "NL",
+      "city": "Amsterdam",
+      "isp": "Digital Transformation Plus LLC"
+    }
+  },
+  {
+    "ip": "192.178.24.163",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:43:19.975421+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "192.178.25.238",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:43:21.169015+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.23.142",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:43:23.746251+03:00",
+    "confidence": 1,
+    "reason": "IP address is associated with Google LLC, a reputable organization, and has no reported abuse or malicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "104.26.12.38",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:43:25.175509+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, high confidence score from AbuseIPDB, no recent abuse reports or activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "35.219.153.27",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:43:26.874363+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a trusted organization (Google Cloud) with low abuse confidence score and no recent activity.",
+    "indicators": [
+      "Low AbuseIPDB confidence score",
+      "Trusted organization (Google Cloud)",
+      "No recent activity"
+    ],
+    "recommended_action": "Monitor the IP for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Las Vegas",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "142.251.208.106",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:43:49.87189+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or high confidence score.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "142.251.156.119",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:02.852907+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or high confidence score.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "142.251.38.238",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:05.336631+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "142.251.208.110",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:06.790761+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.23.14",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:08.145765+03:00",
+    "confidence": 1,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "192.178.25.227",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:09.351965+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or high confidence score.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "216.58.204.110",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:10.621621+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or recent activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.67.72.173",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:14.478288+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate ISP and organization, low abuse confidence score, no recent activity or reports.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "142.250.203.202",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:15.8944+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no recent abuse reports or high abuse scores.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Data Center/Web Hosting/Transit"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "192.0.73.2",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:18.586068+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, low abuse confidence score, and no recent activity",
+    "indicators": [
+      "Automattic, Inc",
+      "AS2635 Automattic, Inc",
+      "Content Delivery Network"
+    ],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "San Francisco",
+      "isp": "Automattic, Inc"
+    }
+  },
+  {
+    "ip": "172.217.23.22",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:21.413318+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United Kingdom",
+      "country_code": "GB",
+      "city": "London",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.67.201.151",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:22.963701+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate ISP and organization, high confidence score from AbuseIPDB, no abuse reports or recent activity.",
+    "indicators": [
+      "Abuse Confidence Score: 0/100",
+      "Total Reports: 0"
+    ],
+    "recommended_action": "Monitor IP for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "142.251.151.119",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:24.241035+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or high confidence score.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.67.134.158",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:25.490421+03:00",
+    "confidence": 1,
+    "reason": "Legitimate IP address from a trusted organization with no reported abuse or malicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "104.26.5.107",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:27.018717+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a well-known and reputable organization (Cloudflare, Inc.) with no abuse reports or recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "104.21.21.115",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:28.492472+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate ISP and organization, high-risk country (Canada) is not typically associated with malicious activity.",
+    "indicators": [
+      "Cloudflare, Inc.",
+      "AS13335 Cloudflare, Inc."
+    ],
+    "recommended_action": "Monitor for unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "104.21.36.77",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:30.022889+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a well-known and reputable organization (Cloudflare, Inc.) with no abuse reports or recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "172.67.159.69",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:31.542053+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate ISP and organization, high confidence score from AbuseIPDB, no abuse reports or recent activity",
+    "indicators": [
+      "Abuse Confidence Score: 0/100",
+      "Total Reports: 0"
+    ],
+    "recommended_action": "Monitor IP for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "172.217.16.136",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:43.726295+03:00",
+    "confidence": 1,
+    "reason": "IP address is associated with Google LLC, a well-known and reputable organization, and has no reported abuse or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "104.16.79.73",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:45.133796+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a reputable organization with high abuse confidence score and no recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "192.0.77.2",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:46.610322+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, low abuse confidence score, no recent activity or reports.",
+    "indicators": [
+      "Automattic, Inc",
+      "AS2635 Automattic, Inc"
+    ],
+    "recommended_action": "Monitor IP for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "San Francisco",
+      "isp": "Automattic, Inc"
+    }
+  },
+  {
+    "ip": "192.178.24.33",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:50.178352+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or high confidence score.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "192.178.24.34",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:53.76048+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.16.130",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:54.925977+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.18.166",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:56.099456+03:00",
+    "confidence": 1,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "192.178.25.226",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:57.382522+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.217.18.162",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:44:58.712017+03:00",
+    "confidence": 1,
+    "reason": "IP address is associated with Google LLC, a well-known and trusted organization, and has no abuse reports or indicators of malicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "104.21.19.160",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:00.05657+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate ISP and organization, low abuse confidence score, no recent activity or reports.",
+    "indicators": [
+      "Cloudflare as ISP",
+      "Content Delivery Network usage"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "104.16.175.226",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:01.59607+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a reputable organization (Cloudflare, Inc.) with no recent abuse reports or high abuse confidence score.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "172.67.177.146",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:02.703448+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate ISP and organization, no abuse reports or recent activity",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "142.251.142.106",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:03.980611+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or recent activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "104.21.31.123",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:05.505712+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate ISP and organization, high-risk country (CA) with a clear geographic location, no abuse reports or recent activity.",
+    "indicators": [
+      "Cloudflare, Inc.",
+      "AS13335 Cloudflare, Inc."
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "104.21.57.209",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:06.928759+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a reputable organization with no known abuse reports or recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "172.67.132.61",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:08.28504+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, low abuse confidence score, and no recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Low Abuse Confidence Score"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "104.21.58.75",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:09.744101+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a reputable organization with no known abuse reports or recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "172.67.175.83",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:11.150161+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, low abuse confidence score, no recent activity or reports.",
+    "indicators": [
+      "Whitelisted",
+      "Low Abuse Confidence Score"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "192.178.24.78",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:12.353529+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or high confidence score.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "192.178.25.229",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:13.609634+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "104.16.80.73",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:15.077114+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a reputable organization (Cloudflare, Inc.) with no abuse reports or suspicious activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "192.178.24.170",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:33.826271+03:00",
+    "confidence": 1,
+    "reason": "No concerning indicators found in the analysis",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "142.251.127.95",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:45:36.446392+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or high confidence score.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "142.251.208.98",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:05.292147+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no reported abuse or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "185.198.199.18",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:06.461379+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Turkey",
+      "country_code": "TR",
+      "city": "Samandıra",
+      "isp": "Dal Bilgi Teknolojileri"
+    }
+  },
+  {
+    "ip": "185.36.252.192",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:11.141023+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or suspicious activity",
+    "access_count": 1,
+    "geo": {
+      "country": "India",
+      "country_code": "IN",
+      "city": "Delhi",
+      "isp": "NAV COMMUNICATIONS SRL"
+    }
+  },
+  {
+    "ip": "54.170.121.144",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:14.684487+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a well-known and reputable organization (AWS EC2) with no abuse reports or high confidence score.",
+    "indicators": [
+      "Legitimate AWS EC2 IP",
+      "No abuse reports"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Ireland",
+      "country_code": "IE",
+      "city": "Dublin",
+      "isp": "Amazon.com, Inc."
+    }
+  },
+  {
+    "ip": "172.217.22.251",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:15.978155+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or recent activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "3.160.55.191",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:18.729575+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or suspicious activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Turkey",
+      "country_code": "TR",
+      "city": "Istanbul",
+      "isp": "Amazon.com, Inc."
+    }
+  },
+  {
+    "ip": "35.241.45.217",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:20.071933+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a well-known organization with low abuse reports and no recent activity.",
+    "indicators": [
+      "Google LLC",
+      "AS396982 Google LLC"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Kansas City",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "3.169.83.63",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:23.17005+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or suspicious activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Turkey",
+      "country_code": "TR",
+      "city": "Istanbul",
+      "isp": "Amazon.com, Inc."
+    }
+  },
+  {
+    "ip": "108.157.60.96",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:24.28445+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Turkey",
+      "country_code": "TR",
+      "city": "Istanbul",
+      "isp": "Amazon.com, Inc."
+    }
+  },
+  {
+    "ip": "151.101.130.137",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:27.374137+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, low abuse confidence score, and no recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Low Abuse Confidence Score"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Montreal",
+      "isp": "Fastly, Inc."
+    }
+  },
+  {
+    "ip": "104.19.219.32",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:28.730374+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, high abuse confidence score, and no recent activity",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "142.251.127.154",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:33.265035+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no recent abuse reports or high abuse confidence score.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Data Center/Web Hosting/Transit"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "216.239.34.181",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:34.51513+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Austell",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "20.250.198.32",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:36.122079+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a trusted organization (Microsoft Azure) with low abuse confidence score and no recent activity.",
+    "indicators": [
+      "Low abuse confidence score",
+      "Trusted organization (Microsoft Azure)",
+      "No recent activity"
+    ],
+    "recommended_action": "Monitor the IP for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Switzerland",
+      "country_code": "CH",
+      "city": "Zurich",
+      "isp": "Microsoft Corporation"
+    }
+  },
+  {
+    "ip": "91.134.34.12",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:37.316679+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a well-known hosting provider with no abuse reports or high confidence score.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "France",
+      "country_code": "FR",
+      "city": "Wattrelos",
+      "isp": "OVH SAS"
+    }
+  },
+  {
+    "ip": "67.220.226.234",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:38.6218+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a well-known and reputable organization (Amazon.com) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Ireland",
+      "country_code": "IE",
+      "city": "Dublin",
+      "isp": "Amazon.com"
+    }
+  },
+  {
+    "ip": "212.102.38.109",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:39.814427+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or suspicious activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Czechia",
+      "country_code": "CZ",
+      "city": "Prague",
+      "isp": "Datacamp Limited"
+    }
+  },
+  {
+    "ip": "146.75.2.132",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:41.328315+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate organization with whitelisting and no abuse reports, located in a low-risk country.",
+    "indicators": [
+      "Fastly, Inc.",
+      "AS54113",
+      "Europe/Sofia"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Bulgaria",
+      "country_code": "BG",
+      "city": "Sofia",
+      "isp": "Fastly, Inc."
+    }
+  },
+  {
+    "ip": "192.178.24.3",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:42.538897+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "162.19.102.237",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:43.891906+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP (OVH SAS) and organization (OVH), with no abuse reports or high abuse scores.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "France",
+      "country_code": "FR",
+      "city": "Wattrelos",
+      "isp": "OVH SAS"
+    }
+  },
+  {
+    "ip": "150.171.109.53",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:45.110502+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a well-known organization with no reported abuse or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Kenya",
+      "country_code": "KE",
+      "city": "Nairobi",
+      "isp": "Microsoft Corporation"
+    }
+  },
+  {
+    "ip": "104.16.55.62",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:46.566332+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, low abuse confidence score, and no recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Low Abuse Confidence Score"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "146.75.1.44",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:49.752099+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate organization (Fastly, Inc.) with whitelisting and no abuse reports",
+    "indicators": [
+      "Whitelisted",
+      "No abuse reports"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Bulgaria",
+      "country_code": "BG",
+      "city": "Sofia",
+      "isp": "Fastly, Inc."
+    }
+  },
+  {
+    "ip": "8.2.108.117",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:53.001907+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a reputable organization (Level 3) with no abuse reports or high confidence score.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Clifton",
+      "isp": "NatCoWeb Corp"
+    }
+  },
+  {
+    "ip": "69.173.156.138",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:55.715016+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or suspicious activity",
+    "access_count": 1,
+    "geo": {
+      "country": "The Netherlands",
+      "country_code": "NL",
+      "city": "Amsterdam",
+      "isp": "The Rubicon Project, Inc."
+    }
+  },
+  {
+    "ip": "34.2.23.33",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:56.934299+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or high confidence score.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Singapore",
+      "country_code": "SG",
+      "city": "Singapore",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "2.21.101.37",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:46:59.800092+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or suspicious activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Türkiye",
+      "country_code": "TR",
+      "city": "Istanbul",
+      "isp": "Akamai Technologies"
+    }
+  },
+  {
+    "ip": "148.251.40.117",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:01.077509+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Falkenstein",
+      "isp": "Hetzner Online GmbH"
+    }
+  },
+  {
+    "ip": "131.153.206.103",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:02.551737+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a reputable hosting provider with no reported abuse or malicious activity.",
+    "indicators": [
+      "PhoenixNAP",
+      "Secured Servers LLC",
+      "AS59210"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Singapore",
+      "country_code": "SG",
+      "city": "Singapore",
+      "isp": "PhoenixNAP"
+    }
+  },
+  {
+    "ip": "104.26.6.88",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:03.69037+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate ISP and organization, no abuse reports or recent activity",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "3.248.78.235",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:04.967291+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a well-known and reputable organization (AWS EC2) with no abuse reports or high confidence score.",
+    "indicators": [],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Ireland",
+      "country_code": "IE",
+      "city": "Dublin",
+      "isp": "Amazon Technologies Inc."
+    }
+  },
+  {
+    "ip": "148.251.20.73",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:07.681674+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Falkenstein",
+      "isp": "Hetzner Online GmbH"
+    }
+  },
+  {
+    "ip": "89.207.16.140",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:08.789607+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or suspicious activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Netherlands",
+      "country_code": "NL",
+      "city": "Amsterdam",
+      "isp": "Conversant LLC"
+    }
+  },
+  {
+    "ip": "98.82.157.231",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:13.915608+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a trusted organization (Amazon.com, Inc.) with low abuse confidence score and no recent activity.",
+    "indicators": [
+      "Legitimate",
+      "Trusted Organization",
+      "Low Abuse Score"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Ashburn",
+      "isp": "Amazon.com, Inc."
+    }
+  },
+  {
+    "ip": "37.252.173.215",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:16.625258+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "AppNexus, Inc"
+    }
+  },
+  {
+    "ip": "162.159.141.246",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:18.016756+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, low abuse confidence score, and no recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Low Abuse Confidence Score"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "67.199.150.77",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:21.036972+03:00",
+    "confidence": 0.9,
+    "reason": "No concerning indicators found in the analysis, IP is from a reputable ISP and organization.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes or unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Singapore",
+      "country_code": "SG",
+      "city": "Singapore",
+      "isp": "PubMatic"
+    }
+  },
+  {
+    "ip": "34.102.243.38",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:22.595021+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate IP address from a trusted organization (Google Cloud) with low abuse reports and no recent activity.",
+    "indicators": [
+      "Legitimate Google Cloud IP",
+      "Low abuse reports"
+    ],
+    "recommended_action": "Monitor for any unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Kansas City",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "104.18.86.42",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:23.981365+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, low abuse confidence score, and no recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Low Abuse Confidence Score"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "23.96.124.68",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:25.310014+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Microsoft Azure) with no abuse reports or recent activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Boydton",
+      "isp": "Microsoft Corporation"
+    }
+  },
+  {
+    "ip": "2.21.100.26",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:26.447964+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or suspicious activity",
+    "access_count": 1,
+    "geo": {
+      "country": "Türkiye",
+      "country_code": "TR",
+      "city": "Istanbul",
+      "isp": "Akamai Technologies"
+    }
+  },
+  {
+    "ip": "172.67.170.105",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:29.74292+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Cloudflare, Inc.) with no abuse reports or recent activity.",
+    "indicators": [
+      "Whitelisted",
+      "Usage Type: Content Delivery Network"
+    ],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "34.4.35.11",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:32.513526+03:00",
+    "confidence": 0,
+    "reason": "No concerning indicators found in the analysis.",
+    "indicators": [],
+    "recommended_action": "Monitor IP for any changes or unusual activity",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Washington",
+      "isp": "Google LLC"
+    }
+  },
+  {
+    "ip": "172.64.155.119",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:34.134154+03:00",
+    "confidence": 0.8,
+    "reason": "Legitimate ISP and organization, low abuse confidence score, and whitelisted status indicate a clean IP address.",
+    "indicators": [
+      "Whitelisted",
+      "Low Abuse Confidence Score"
+    ],
+    "recommended_action": "Monitor for any changes in behavior or new reports",
+    "access_count": 1,
+    "geo": {
+      "country": "Canada",
+      "country_code": "CA",
+      "city": "Toronto",
+      "isp": "Cloudflare, Inc."
+    }
+  },
+  {
+    "ip": "192.178.24.161",
+    "status": "CLEAN",
+    "added_at": "2026-04-30T22:47:35.340114+03:00",
+    "confidence": 0.9,
+    "reason": "Legitimate IP address from a trusted organization (Google LLC) with no abuse reports or suspicious activity.",
+    "indicators": [],
+    "recommended_action": "Monitor for any changes in behavior",
+    "access_count": 1,
+    "geo": {
+      "country": "United States",
+      "country_code": "US",
+      "city": "Mountain View",
+      "isp": "Google LLC"
+    }
+  }
+]

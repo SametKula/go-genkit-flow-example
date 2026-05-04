@@ -18,6 +18,7 @@
 - [x] Whitelist özelliği (CLEAN ipler için süreli muafiyet ve JSON persistence)
 - [x] IP Erişim Sayacı (Quarantine/Block listelerinde kaç kez görüldüğü)
 - [x] İlk git commit yapıldı
+- [x] Terminal çıktılarındaki emojiler kaldırılarak log formatı daha kurumsal ve okunabilir hale getirildi
 
 ## Aktif Kararlar
 1. **Ollama Model**: `llama3.2` varsayılan (config ile değiştirilebilir)

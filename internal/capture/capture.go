@@ -103,7 +103,7 @@ func (c *Capturer) Start(done <-chan struct{}) error {
 		log.Printf("[CAPTURE] Warning: could not set BPF filter: %v", err)
 	}
 
-	log.Printf("[CAPTURE] 🟢 Listening for packets on %s (dedup TTL: %v)", c.iface, c.dedupTTL)
+	log.Printf("[CAPTURE] [STARTED] Listening for packets on %s (dedup TTL: %v)", c.iface, c.dedupTTL)
 
 	packetSource := gopacket.NewPacketSource(handle, handle.LinkType())
 	packetSource.NoCopy = true
@@ -111,7 +111,7 @@ func (c *Capturer) Start(done <-chan struct{}) error {
 	for {
 		select {
 		case <-done:
-			log.Println("[CAPTURE] 🔴 Capture stopped.")
+			log.Println("[CAPTURE] [STOPPED] Capture stopped.")
 			return nil
 		case packet, ok := <-packetSource.Packets():
 			if !ok {
@@ -149,11 +149,11 @@ func (c *Capturer) processPacket(packet gopacket.Packet) {
 		}
 		ipStr := ip.String()
 		if c.shouldAnalyze(ipStr) {
-			log.Printf("[CAPTURE] 📡 New IP detected: %s", ipStr)
+			log.Printf("[CAPTURE] [NEW IP] Detected: %s", ipStr)
 			select {
 			case c.ipChan <- ipStr:
 			default:
-				log.Printf("[CAPTURE] ⚠️  Channel full, dropping IP: %s", ipStr)
+				log.Printf("[CAPTURE] [WARNING] Channel full, dropping IP: %s", ipStr)
 			}
 		}
 	}

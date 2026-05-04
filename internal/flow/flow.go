@@ -105,7 +105,7 @@ func NewAnalyzer(ctx context.Context, ollamaBaseURL, modelName string) (*Analyze
 		},
 	)
 
-	log.Printf("[FLOW] ✅ Genkit flow 'analyzeIP' registered with model: %s", modelName)
+	log.Printf("[FLOW] [SUCCESS] Genkit flow 'analyzeIP' registered with model: %s", modelName)
 	return a, nil
 }
 
@@ -129,7 +129,7 @@ func (a *Analyzer) Analyze(ctx context.Context, data *enrichment.IPEnrichment) (
 func (a *Analyzer) runAnalysis(ctx context.Context, input *AnalysisInput) (*AnalysisResult, error) {
 	prompt := fmt.Sprintf("%s\n\n=== IP ANALYSIS REQUEST ===\n%s", systemPrompt, input.Summary)
 
-	log.Printf("[FLOW] 🤖 Sending IP %s to AI model for analysis...", input.IP)
+	log.Printf("[FLOW] [INFO] Sending IP %s to AI model for analysis...", input.IP)
 
 	text, err := genkit.GenerateText(ctx, a.g,
 		ai.WithModel(a.model),
@@ -145,7 +145,7 @@ func (a *Analyzer) runAnalysis(ctx context.Context, input *AnalysisInput) (*Anal
 	// Parse the JSON response
 	result, err := parseAIResponse(text, input.IP)
 	if err != nil {
-		log.Printf("[FLOW] ⚠️  Failed to parse AI response for %s: %v", input.IP, err)
+		log.Printf("[FLOW] [WARNING] Failed to parse AI response for %s: %v", input.IP, err)
 		log.Printf("[FLOW] Raw response: %s", text)
 		// Fallback: treat as suspicious if parsing fails
 		return &AnalysisResult{
@@ -158,7 +158,7 @@ func (a *Analyzer) runAnalysis(ctx context.Context, input *AnalysisInput) (*Anal
 		}, nil
 	}
 
-	log.Printf("[FLOW] ✅ Analysis complete for %s: %s (confidence: %.2f)", input.IP, result.Status, result.Confidence)
+	log.Printf("[FLOW] [SUCCESS] Analysis complete for %s: %s (confidence: %.2f)", input.IP, result.Status, result.Confidence)
 	return result, nil
 }
 

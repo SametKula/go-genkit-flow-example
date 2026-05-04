@@ -80,7 +80,7 @@ func (e *Enricher) Enrich(ip string) *IPEnrichment {
 	// Collect geographic info
 	geo, err := e.fetchGeoInfo(ip)
 	if err != nil {
-		log.Printf("[ENRICHMENT] ⚠️  Geo lookup failed for %s: %v", ip, err)
+		log.Printf("[ENRICHMENT] [WARNING] Geo lookup failed for %s: %v", ip, err)
 		result.Errors = append(result.Errors, fmt.Sprintf("geo: %v", err))
 	} else {
 		result.Geo = geo
@@ -90,7 +90,7 @@ func (e *Enricher) Enrich(ip string) *IPEnrichment {
 	if e.AbuseIPDBKey != "" {
 		abuse, err := e.fetchAbuseReport(ip)
 		if err != nil {
-			log.Printf("[ENRICHMENT] ⚠️  Abuse lookup failed for %s: %v", ip, err)
+			log.Printf("[ENRICHMENT] [WARNING] Abuse lookup failed for %s: %v", ip, err)
 			result.Errors = append(result.Errors, fmt.Sprintf("abuse: %v", err))
 		} else {
 			result.Abuse = abuse

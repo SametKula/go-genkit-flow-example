@@ -40,16 +40,16 @@ func (b *Bot) SendDangerAlert(ip, reason string, confidence float64, indicators 
 	}
 
 	message := fmt.Sprintf(
-		"🚨 *CRITICAL SECURITY ALERT* 🚨\n\n"+
-			"*Dangerous IP Detected & Blocked!*\n\n"+
-			"📍 *IP Address:* `%s`\n"+
-			"⚠️ *Status:* DANGEROUS\n"+
-			"🎯 *Confidence:* %.0f%%\n\n"+
-			"📋 *Reason:*\n%s\n\n"+
-			"🔍 *Threat Indicators:*\n%s\n"+
-			"🛡️ *Action Taken:* IP added to block list\n\n"+
-			"⏰ *Detected at:* %s\n\n"+
-			"_Please review and take additional protective measures if necessary._",
+		"[CRITICAL SECURITY ALERT]\n\n"+
+			"Dangerous IP Detected & Blocked!\n\n"+
+			"IP Address: `%s`\n"+
+			"Status: DANGEROUS\n"+
+			"Confidence: %.0f%%\n\n"+
+			"Reason:\n%s\n\n"+
+			"Threat Indicators:\n%s\n"+
+			"Action Taken: IP added to block list\n\n"+
+			"Detected at: %s\n\n"+
+			"Please review and take additional protective measures if necessary.",
 		ip,
 		confidence*100,
 		reason,
@@ -63,13 +63,13 @@ func (b *Bot) SendDangerAlert(ip, reason string, confidence float64, indicators 
 // SendSuspiciousAlert sends a warning message for a suspicious IP.
 func (b *Bot) SendSuspiciousAlert(ip, reason string, confidence float64) error {
 	message := fmt.Sprintf(
-		"⚠️ *Suspicious IP Quarantined*\n\n"+
-			"📍 *IP Address:* `%s`\n"+
-			"🟡 *Status:* SUSPICIOUS\n"+
-			"🎯 *Confidence:* %.0f%%\n\n"+
-			"📋 *Reason:* %s\n\n"+
-			"🛡️ *Action Taken:* IP added to quarantine\n"+
-			"⏰ *Detected at:* %s",
+		"[Suspicious IP Quarantined]\n\n"+
+			"IP Address: `%s`\n"+
+			"Status: SUSPICIOUS\n"+
+			"Confidence: %.0f%%\n\n"+
+			"Reason: %s\n\n"+
+			"Action Taken: IP added to quarantine\n"+
+			"Detected at: %s",
 		ip,
 		confidence*100,
 		reason,
@@ -82,7 +82,7 @@ func (b *Bot) SendSuspiciousAlert(ip, reason string, confidence float64) error {
 // sendMessage sends a message to the configured Telegram chat.
 func (b *Bot) sendMessage(text string) error {
 	if b.token == "" || b.chatID == "" {
-		log.Printf("[TELEGRAM] ⚠️  Token or ChatID not configured, skipping notification")
+		log.Printf("[TELEGRAM] [WARNING] Token or ChatID not configured, skipping notification")
 		return nil
 	}
 
@@ -104,7 +104,7 @@ func (b *Bot) sendMessage(text string) error {
 		return fmt.Errorf("telegram API returned status %d", resp.StatusCode)
 	}
 
-	log.Printf("[TELEGRAM] ✅ Alert sent successfully")
+	log.Printf("[TELEGRAM] [SUCCESS] Alert sent successfully")
 	return nil
 }
 

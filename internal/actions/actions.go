@@ -93,14 +93,14 @@ func (e *Engine) Execute(result *flow.AnalysisResult, enriched *enrichment.IPEnr
 	case flow.StatusDangerous:
 		e.handleDangerous(result, enriched)
 	default:
-		log.Printf("[ACTION] ⚠️  Unknown status %q for IP %s, treating as SUSPICIOUS", result.Status, result.IP)
+		log.Printf("[ACTION] [WARNING] Unknown status %q for IP %s, treating as SUSPICIOUS", result.Status, result.IP)
 		e.handleSuspicious(result, enriched)
 	}
 }
 
 // handleClean logs the clean result and adds the IP to the temporary and persistent whitelist.
 func (e *Engine) handleClean(result *flow.AnalysisResult, enriched *enrichment.IPEnrichment) {
-	log.Printf("[ACTION] ✅ CLEAN  | IP: %s | Confidence: %.0f%% | %s",
+	log.Printf("[ACTION] [CLEAN] IP: %s | Confidence: %.0f%% | %s",
 		result.IP, result.Confidence*100, result.Reason)
 
 	// Add to memory whitelist (for performance)
@@ -111,38 +111,38 @@ func (e *Engine) handleClean(result *flow.AnalysisResult, enriched *enrichment.I
 	// Add to persistent whitelist file
 	record := buildRecord(result, enriched)
 	if err := e.whitelistStore.add(record); err != nil {
-		log.Printf("[ACTION] ❌ Failed to persist whitelist IP %s: %v", result.IP, err)
+		log.Printf("[ACTION] [ERROR] Failed to persist whitelist IP %s: %v", result.IP, err)
 	}
 
-	log.Printf("[ACTION] 🏳️  IP %s added to whitelist for %v", result.IP, e.whitelistTTL)
+	log.Printf("[ACTION] [WHITELIST] IP %s added to whitelist for %v", result.IP, e.whitelistTTL)
 }
 
 // handleSuspicious adds the IP to the quarantine list.
 func (e *Engine) handleSuspicious(result *flow.AnalysisResult, enriched *enrichment.IPEnrichment) {
-	log.Printf("[ACTION] 🟡 SUSPICIOUS | IP: %s | Confidence: %.0f%% | %s",
+	log.Printf("[ACTION] [SUSPICIOUS] IP: %s | Confidence: %.0f%% | %s",
 		result.IP, result.Confidence*100, result.Reason)
 
 	record := buildRecord(result, enriched)
 	if err := e.quarantineStore.add(record); err != nil {
-		log.Printf("[ACTION] ❌ Failed to quarantine IP %s: %v", result.IP, err)
+		log.Printf("[ACTION] [ERROR] Failed to quarantine IP %s: %v", result.IP, err)
 		return
 	}
 
-	log.Printf("[ACTION] 🔒 IP %s added to quarantine list (%s)", result.IP, e.quarantineStore.path)
+	log.Printf("[ACTION] [QUARANTINED] IP %s added to quarantine list (%s)", result.IP, e.quarantineStore.path)
 }
 
 // handleDangerous blocks the IP and sends a Telegram alert.
 func (e *Engine) handleDangerous(result *flow.AnalysisResult, enriched *enrichment.IPEnrichment) {
-	log.Printf("[ACTION] 🔴 DANGEROUS | IP: %s | Confidence: %.0f%% | %s",
+	log.Printf("[ACTION] [DANGEROUS] IP: %s | Confidence: %.0f%% | %s",
 		result.IP, result.Confidence*100, result.Reason)
 
 	record := buildRecord(result, enriched)
 	if err := e.blockStore.add(record); err != nil {
-		log.Printf("[ACTION] ❌ Failed to block IP %s: %v", result.IP, err)
+		log.Printf("[ACTION] [ERROR] Failed to block IP %s: %v", result.IP, err)
 		return
 	}
 
-	log.Printf("[ACTION] 🚫 IP %s added to BLOCK list (%s)", result.IP, e.blockStore.path)
+	log.Printf("[ACTION] [BLOCKED] IP %s added to BLOCK list (%s)", result.IP, e.blockStore.path)
 
 	// Send Telegram alert
 	if e.telegramBot != nil && e.telegramBot.Enabled() {
@@ -152,10 +152,10 @@ func (e *Engine) handleDangerous(result *flow.AnalysisResult, enriched *enrichme
 			result.Confidence,
 			result.Indicators,
 		); err != nil {
-			log.Printf("[ACTION] ❌ Telegram alert failed for %s: %v", result.IP, err)
+			log.Printf("[ACTION] [ERROR] Telegram alert failed for %s: %v", result.IP, err)
 		}
 	} else {
-		log.Printf("[ACTION] ⚠️  Telegram not configured — skipping notification for %s", result.IP)
+		log.Printf("[ACTION] [WARNING] Telegram not configured — skipping notification for %s", result.IP)
 	}
 }
 
@@ -222,7 +222,7 @@ func loadStore(path string) (*ipStore, error) {
 
 	if err := json.Unmarshal(data, &store.records); err != nil {
 		// File corrupted or empty — start fresh
-		log.Printf("[ACTION] ⚠️  Could not parse %s, starting fresh: %v", path, err)
+		log.Printf("[ACTION] [WARNING] Could not parse %s, starting fresh: %v", path, err)
 		store.records = []IPRecord{}
 	}
 
@@ -237,7 +237,7 @@ func (s *ipStore) add(record IPRecord) error {
 	// Check for duplicates
 	for i, existing := range s.records {
 		if existing.IP == record.IP {
-			log.Printf("[ACTION] 📋 IP %s already in %s, updating stats...", record.IP, s.path)
+			log.Printf("[ACTION] [INFO] IP %s already in %s, updating stats...", record.IP, s.path)
 			// Increment access count and update record
 			record.AccessCount = existing.AccessCount + 1
 			s.records[i] = record
