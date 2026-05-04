@@ -41,6 +41,9 @@ type Config struct {
 	// Database
 	DatabaseFile string
 
+	// AbuseIPDB
+	AbuseIPDBKey string
+
 	// Workers
 	WorkerCount int
 	IPChanSize  int
@@ -128,7 +131,7 @@ func main() {
 	go func() {
 		for ip := range fastBlockChan {
 			log.Printf("[MAIN] [FAST-PATH] Blocking IP immediately: %s", ip)
-			
+
 			result := &flow.AnalysisResult{
 				IP:                ip,
 				Status:            flow.StatusDangerous,

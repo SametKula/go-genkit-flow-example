@@ -79,7 +79,7 @@ func (c *Capturer) isPrivate(ip net.IP) bool {
 }
 
 // processIP tracks rate limits and sends IPs to the correct channel.
-func (c *Capturer) processIP(ipStr string) {
+func (c *Capturer) processIP(ipStr string, isTCPSyn bool) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 
@@ -95,14 +95,16 @@ func (c *Capturer) processIP(ipStr string) {
 		return // Already fast-blocked, ignore
 	}
 
-	stat.packetCount++
+	if isTCPSyn {
+		stat.packetCount++
+	}
 
 	now := time.Now()
 	// Check rate limit (1 second window)
 	if now.Sub(stat.windowStart) >= time.Second {
 		if stat.packetCount > c.rateThreshold {
 			stat.fastBlocked = true
-			log.Printf("[CAPTURE] [FAST-PATH] IP %s exceeded threshold (%d pkts/sec)", ipStr, stat.packetCount)
+			log.Printf("[CAPTURE] [FAST-PATH] IP %s exceeded threshold (%d SYN pkts/sec)", ipStr, stat.packetCount)
 			select {
 			case c.fastBlockChan <- ipStr:
 			default:
@@ -111,7 +113,7 @@ func (c *Capturer) processIP(ipStr string) {
 		}
 		// Reset window
 		stat.windowStart = now
-		stat.packetCount = 1
+		stat.packetCount = 0
 	}
 
 	// Slow path (AI Analysis) dedup
@@ -182,11 +184,20 @@ func (c *Capturer) processPacket(packet gopacket.Packet) {
 		return
 	}
 
+	isTCPSyn := false
+	if tcpLayer := packet.Layer(layers.LayerTypeTCP); tcpLayer != nil {
+		tcp, _ := tcpLayer.(*layers.TCP)
+		// Only consider it a new connection if SYN is set and ACK is not
+		if tcp.SYN && !tcp.ACK {
+			isTCPSyn = true
+		}
+	}
+
 	for _, ip := range []net.IP{srcIP, dstIP} {
 		if ip == nil || c.isPrivate(ip) {
 			continue
 		}
 		ipStr := ip.String()
-		c.processIP(ipStr)
+		c.processIP(ipStr, isTCPSyn)
 	}
 }
